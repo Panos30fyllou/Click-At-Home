@@ -1,0 +1,18 @@
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.csprojAssemblyReference.cache
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Properties.Resources.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.csproj.GenerateResource.cache
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.csproj.CoreCompileInputs.cache
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\bin\Debug\Click At Home.exe.config
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\bin\Debug\Click At Home.exe
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\bin\Debug\Click At Home.pdb
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form1.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form2.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form3.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form4.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form5.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form6.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form7.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form8.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form9.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.exe
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.pdb
