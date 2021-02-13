@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -141,6 +142,21 @@ namespace ClickAtHome
         {
             Random rnd = new Random();
             topLabel.Text = quotes[rnd.Next(0, 3)];
+        }
+        private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            Close();
+        }
+
+        private void signOutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Hide();
+            Form1 f1 = new Form1();
+            f1.ShowDialog();
+            Close();
         }
     }
 }

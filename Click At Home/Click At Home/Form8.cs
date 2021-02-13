@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClickAtHome
@@ -19,9 +12,10 @@ namespace ClickAtHome
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Hide();
             Form1 f1 = new Form1();
-            this.Hide();
             f1.ShowDialog();
+            Close();
         }
 
         private void Form8_Load(object sender, EventArgs e)
@@ -34,9 +28,10 @@ namespace ClickAtHome
         //Προηγούμενη σελίδα
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            Hide();
             Form2 f2 = new Form2();
-            this.Hide();
             f2.ShowDialog();
+            Close();
         }
 
         private void radioButton1_Click(object sender, EventArgs e)
@@ -62,9 +57,7 @@ namespace ClickAtHome
                 errorProvider1.SetError(textBox1, "Το πεδίο είναι κενό");
             }
             else
-            {
                 richTextBox1.Text += "Κλήση της επαφής : " + textBox1.Text + " με αριθμό : " + textBox2.Text + "." + Environment.NewLine;
-            }
         }
 
 
@@ -91,9 +84,7 @@ namespace ClickAtHome
                 errorProvider1.SetError(textBox3, "Το πεδίο είναι κενό");
             }
             else
-            {
                 richTextBox1.Text += "Κλήση της επαφής : " + textBox3.Text + " με αριθμό : " + textBox4.Text + "." + Environment.NewLine + Environment.NewLine;
-            }
         }
 
         private void radioButton3_Click(object sender, EventArgs e)
@@ -116,47 +107,42 @@ namespace ClickAtHome
                 f9.ShowDialog();
             }
             else if ( rInt > 128 && rInt <= 150)
-            {
                 richTextBox1.Text += "Οι παλμοί σας είναι πάνω απο το επιθυμητό στόχο αλλά μέσα στα φυσιολογικά όρια." + Environment.NewLine + Environment.NewLine;
-            }
         }
 
         //Σε περίπτωση που τα πεδία έχυν το αρχικό τους περιεχόμενο όταν πατηθούν, αυτό θα σβηστεί
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "Όνομα")
-            {
                 textBox1.Text = "";
-            }
         }
 
         private void textBox2_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "Τηλέφωνο")
-            {
                 textBox2.Text = "";
-            }
         }
 
         private void textBox3_Click(object sender, EventArgs e)
         {
             if (textBox3.Text == "Όνομα")
-            {
                 textBox3.Text = "";
-            }
         }
 
         private void textBox4_Click(object sender, EventArgs e)
         {
             if (textBox4.Text == "Τηλέφωνο")
-            {
                 textBox4.Text = "";
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
 
         //τέλος

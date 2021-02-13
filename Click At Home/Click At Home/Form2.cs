@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClickAtHome
@@ -26,7 +20,7 @@ namespace ClickAtHome
             string line;
             while ((line = Textfile.ReadLine()) != null)
             {
-                linkLabel2.Text = "Καλωσήρθες , " + line;
+                linkLabel2.Text = "Καλωσήρθες, " + line;
             }
             Textfile.Close();
         }
@@ -34,49 +28,55 @@ namespace ClickAtHome
         //Οn-line κατάστημα αγορών
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Form3 f3 = new Form3();
             Hide();
+            Form3 f3 = new Form3();
             f3.ShowDialog();
+            Close();
         }
 
         //Αποσύνδεση
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
             Hide();
+            Form1 f1 = new Form1();
             f1.ShowDialog();
-            File.WriteAllText(txt_path, string.Empty);
+            Close();
         }
+
         //Ηλεκτρονικό θερμόμετρο
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form10 f10 = new Form10();
             Hide();
+            Form10 f10 = new Form10();
             f10.ShowDialog();
+            Close();
         }
 
         //Συσκευές σπιτιού
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            Form11 f11 = new Form11();
             Hide();
+            Form11 f11 = new Form11();
             f11.ShowDialog();
+            Close();
         }
 
         //Ηλικιωμένοι
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            Form8 f8 = new Form8();
             Hide();
+            Form8 f8 = new Form8();
             f8.ShowDialog();
+            Close();
         }
 
         //Πλάνο καραντίνας
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Form12 f12 = new Form12();
             Hide();
+            Form12 f12 = new Form12();
             f12.ShowDialog();
+            Close();
         }
 
         //Έξοδος από την εφαρμογή
@@ -84,7 +84,6 @@ namespace ClickAtHome
         {
             Application.Exit();
         }
-
     }
 }
 

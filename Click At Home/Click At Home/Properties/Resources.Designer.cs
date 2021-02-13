@@ -63,6 +63,16 @@ namespace ClickAtHome.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addMovementButton {
+            get {
+                object obj = ResourceManager.GetObject("addMovementButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap airConditionOff {
             get {
                 object obj = ResourceManager.GetObject("airConditionOff", resourceCulture);
@@ -453,6 +463,16 @@ namespace ClickAtHome.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coffeeButton {
+            get {
+                object obj = ResourceManager.GetObject("coffeeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap coffeeMakerOff {
             get {
                 object obj = ResourceManager.GetObject("coffeeMakerOff", resourceCulture);
@@ -763,9 +783,49 @@ namespace ClickAtHome.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mapBoxBank {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxBank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxCoffee {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxCoffee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MapBoxEmpty {
             get {
                 object obj = ResourceManager.GetObject("MapBoxEmpty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxEmptyRect {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxEmptyRect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxExercise {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxExercise", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -786,6 +846,56 @@ namespace ClickAtHome.Properties {
         internal static System.Drawing.Bitmap MapBoxFullHospital {
             get {
                 object obj = ResourceManager.GetObject("MapBoxFullHospital", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxPh {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxPh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxRandom {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxRandom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxSM {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxSM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mapBoxWork {
+            get {
+                object obj = ResourceManager.GetObject("mapBoxWork", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextMapButton {
+            get {
+                object obj = ResourceManager.GetObject("nextMapButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -836,6 +946,16 @@ namespace ClickAtHome.Properties {
         internal static System.Drawing.Bitmap Pointer {
             get {
                 object obj = ResourceManager.GetObject("Pointer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap previousMapButton {
+            get {
+                object obj = ResourceManager.GetObject("previousMapButton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

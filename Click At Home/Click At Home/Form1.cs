@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -30,21 +29,20 @@ namespace ClickAtHome
                 {
                     if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)))
                         errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
-
                     if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");
-
                 }
                 else
                 {
                     errorProvider1.SetError(textBox1, "");
                     errorProvider2.SetError(textBox2, "");
                     //νεα φορμα
-                    this.Hide();
-                    Form2 f2 = new Form2();
-                    string subMail = (textBox1.Text).Substring(0, (textBox1.Text).IndexOf("@"));
+                    string subMail = textBox1.Text.Substring(0, textBox1.Text.IndexOf("@"));
                     File.WriteAllText(txt_path, subMail);
+                    Hide();
+                    Form2 f2 = new Form2();
                     f2.ShowDialog();
+                    Close();
                 }
             }
             else
@@ -56,7 +54,6 @@ namespace ClickAtHome
                         errorProvider1.SetError(textBox1, "Το πεδίο ενδέχεται να είναι κενό.");
                     if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");
-
                     if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))
                         errorProvider3.SetError(textBox3, "Το πεδίο ενδέχεται να είναι κενό.");
                     if (textBox2.Text != textBox3.Text)
@@ -91,7 +88,6 @@ namespace ClickAtHome
                 button2.Text = "Επιστροφή";
                 textBox1.Text = "Κωδικός επιβεβαίωσης";
                 textBox2.Text = "Νέος κωδικός";
-
                 MessageBox.Show("'Εχει σταλθεί κωδικός επιβεβαίωσης στο e-mail σας.");
             }
             else
@@ -103,7 +99,7 @@ namespace ClickAtHome
         //Όταν δεν είναι εμφανές ο χρήστης πατάει το κουμπί επειδή θέλει να δημιουργήσει λογαριασμό.
         private void button3_Click(object sender, EventArgs e)
         {
-            //Όταν το κουμπί δεν είναι εμφανές τότε εμφανίζονται τα απαραίτητα πεδία για τη δημιουργία λογαριασμού
+            //Όταν το κουμπί δεν είναι εμφανές τότε εμφανίζονται τα απαραίτητα πεδία για τη δημιουργία λογαριασμού.
             if (textBox4.Visible == false)
             {
                 textBox4.Visible = true;
@@ -120,7 +116,7 @@ namespace ClickAtHome
                 bool isEmail = Regex.IsMatch(textBox1.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
                 if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)) || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)) || (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text)) || (String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrWhiteSpace(textBox4.Text)) || (textBox3.Text != textBox4.Text) )
                 {
-                    if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
+                    if (isEmail == false || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
                         errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
                     else
                         errorProvider1.SetError(textBox1, "");
@@ -141,7 +137,6 @@ namespace ClickAtHome
                         errorProvider4.SetError(textBox4, "");
                     if (textBox3.Text != textBox4.Text)
                         errorProvider4.SetError(textBox4, "Ο κωδικός δεν είναι ο ίδιος");
-
                 }
                 else
                 {
@@ -196,6 +191,11 @@ namespace ClickAtHome
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

@@ -134,5 +134,16 @@ namespace ClickAtHome
             aircondition.hover();
             airConditionButton.BackgroundImage = aircondition.getImage();
         }
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+            new Form2().Show();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
+            new Form1().Show();
+        }
     }
 }

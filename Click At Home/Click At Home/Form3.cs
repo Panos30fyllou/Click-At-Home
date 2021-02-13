@@ -280,10 +280,10 @@ namespace ClickAtHome
         //Αρχική σελίδα
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            File.WriteAllText(add, string.Empty);
-            Form2 f2 = new Form2();
             Hide();
+            Form2 f2 = new Form2();
             f2.ShowDialog();
+            Close();
         }
 
         //Βοήθεια
@@ -295,14 +295,11 @@ namespace ClickAtHome
         //Αποσύνδεση
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
-            File.WriteAllText(txt_path, string.Empty);
-            File.WriteAllText(add, string.Empty);
             Hide();
+            Form1 f1 = new Form1();
             f1.ShowDialog();
+            Close();
         }
-
         //τέλος
-
     }
 }

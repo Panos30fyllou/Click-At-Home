@@ -155,34 +155,30 @@ namespace ClickAtHome
             Food_Count(label6, numericUpDown6);
         }
 
-        string txt_path = "C:\\Users\\eyaki\\Desktop\\test\\user.txt";
-        string add = "C:\\Users\\eyaki\\Desktop\\test\\address.txt";
+        string txt_path = Application.StartupPath + @"\user.txt";
+        string add = Application.StartupPath + @"\address.txt";
         //Αρχική σελίδα 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             File.WriteAllText(add, string.Empty);
-            Form2 f2 = new Form2();
-            this.Hide();
-            f2.ShowDialog();
+            Close();
         }
 
         // προηγούμενη σελίδα
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             File.WriteAllText(add, string.Empty);
-            Form3 f3 = new Form3();
-            this.Hide();
-            f3.ShowDialog();
+            Hide();
+            new Form3().ShowDialog();
         }
 
         //Αποσύνδεση
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
             File.WriteAllText(txt_path, string.Empty);
             File.WriteAllText(add, string.Empty);
-            this.Hide();
-            f1.ShowDialog();
+            Close();
+            new Form1().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
