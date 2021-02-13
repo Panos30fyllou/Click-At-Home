@@ -123,6 +123,12 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form10.resx">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +259,180 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\led1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThermometerEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tempLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InfoLabel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MapBoxEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MapBoxFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MapBoxFullHospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OnOffBlue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thermometer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cof.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inst.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\java.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\leaf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\olive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\or.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airConditionOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airConditionOffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airConditionOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airConditionOnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom1OffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom1On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom1OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom2OffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom2On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bathroom2OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp1OffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp1On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp1OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp2OffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp2On.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bedLamp2OnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeMakerOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeMakerOffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeMakerOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeMakerOnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeTopView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\homeTopView7201.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidsBedLampOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidsBedLampOffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidsBedLampOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kidsBedLampOnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvOffHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tvOnHover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

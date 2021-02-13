@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClickAtHome
-
 {
     public partial class Form1 : Form
     {
@@ -36,14 +29,10 @@ namespace ClickAtHome
                 if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)) || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)))
                 {
                     if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)))
-                    {
                         errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
-                    }
 
-                    if ((String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
 
                 }
                 else
@@ -63,25 +52,15 @@ namespace ClickAtHome
                 //Αν τα πεδία είναι σωστά συμπληρωμένα πραγματοποιείται επιστροφή στην αρχική σελίδα , αλλιώς εμφανίζεται μήνυμα λάθους.
                 if ((String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text)) || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)) || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)) || textBox2.Text != textBox3.Text)
                 {
-                    if ((String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
                         errorProvider1.SetError(textBox1, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
-
-                    if ((String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
 
-                    if ((String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))
                         errorProvider3.SetError(textBox3, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
-
                     if (textBox2.Text != textBox3.Text)
-                    {
                         errorProvider3.SetError(textBox3, "Ο κωδικός δεν είναι ίδιος.");
-                    }
                 }
                 else
                 {
@@ -97,8 +76,6 @@ namespace ClickAtHome
                 }
             }
         }
-
-
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -118,9 +95,7 @@ namespace ClickAtHome
                 MessageBox.Show("'Εχει σταλθεί κωδικός επιβεβαίωσης στο e-mail σας.");
             }
             else
-            {
                 errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
-            }
         }
 
         //Το πεδίο textbox4 είναι εμφανές μόνο όταν ο χρήστης φτιάχνει νέο λογαριασμό. Το κουμπί button3 έχει δύο χρήσεις.
@@ -145,46 +120,27 @@ namespace ClickAtHome
                 bool isEmail = Regex.IsMatch(textBox1.Text, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
                 if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)) || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)) || (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text)) || (String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrWhiteSpace(textBox4.Text)) || (textBox3.Text != textBox4.Text) )
                 {
-                    if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)))
-                    {
+                    if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
                         errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
-                    }
                     else
-                    {
                         errorProvider1.SetError(textBox1, "");
-                    }
                     //Πεδίο κωδικού
-                    if ((String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
                     else
-                    {
                         errorProvider2.SetError(textBox2, "");
-                    }
                     //Πεδίο επανάλψης κωδικού
-                    if ((String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))
                         errorProvider2.SetError(textBox3, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
                     else
-                    {
                         errorProvider3.SetError(textBox3, "");
-                    }
                     //Πεδίο ονόματος χρήστη
-                    if ((String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrWhiteSpace(textBox4.Text)))
-                    {
+                    if (String.IsNullOrEmpty(textBox4.Text) || String.IsNullOrWhiteSpace(textBox4.Text))
                         errorProvider2.SetError(textBox4, "Το πεδίο ενδέχεται να είναι κενό.");
-                    }
                     else
-                    {
                         errorProvider4.SetError(textBox4, "");
-                    }
-
                     if (textBox3.Text != textBox4.Text)
-                    {
                         errorProvider4.SetError(textBox4, "Ο κωδικός δεν είναι ο ίδιος");
-                    }
 
                 }
                 else
@@ -211,34 +167,26 @@ namespace ClickAtHome
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
             if (textBox1.Text == "E-mail" || textBox1.Text == "Κωδικός επιβεβαίωσης")
-            {
                 textBox1.Text = "";
-            }
         }
 
         //Εάν το κείμενο του textbox είναι το default κείμενο τότε θα διαγραφεί όταν πατήσει ο χρήστης πάνω του
         private void textBox2_MouseClick(object sender, MouseEventArgs e)
         {
             if (textBox2.Text == "Κωδικός" || textBox2.Text == "Νέος κωδικός")
-            {
                 textBox2.Text = "";
-            }
         }
 
         private void textBox3_MouseClick(object sender, MouseEventArgs e)
         {
             if (textBox3.Text == "Επιβεβαίωση κωδικού")
-            {
                 textBox3.Text = "";
-            }
         }
 
         private void textBox4_MouseClick(object sender, MouseEventArgs e)
         {
             if (textBox4.Text == "Όνομα χρήστη")
-            {
                 textBox4.Text = "";
-            }
         }
 
         //Βοήθεια
