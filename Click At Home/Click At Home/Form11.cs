@@ -51,31 +51,26 @@ namespace ClickAtHome
         {
             Button button = sender as Button;
             string name = button.Name.Replace("Button", "");
-            foreach (Device device in deviceList)
-                if (device.name.Equals(name))
-                {
-                    if (!device.name.Equals("coffeeMaker"))
-                    {
-                        if (device.isOn())
-                            device.turnOff();
-                        else
-                            device.turnOn();
+            foreach (Device device in deviceList) {
+                if (device.name.Equals(name)) {
+                    if (!device.name.Equals("coffeeMaker")) {
+                        if (device.isOn())  device.turnOff();
+                        else                device.turnOn();
                         richTextBox1.Text += (device.isOn() ? (device.name.Equals("airCondition") ? device.grPhraseOn + airCondionLabel.Text + " στην λειτουργία " + airConditionComboController.Text : device.grPhraseOn) : device.grPhraseOff) + Environment.NewLine;
                     }
-                    else
-                    {
-                        if (cofeemaker.isOn()) {    cofeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" +        Environment.NewLine; }
+                    else {
+                        if (cofeemaker.isOn()) {    cofeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" + Environment.NewLine; }
                         else {                      coffeeTimer.Start();    richTextBox1.Text += "Η καφετιέρα ενεργοποιήθηκε" + Environment.NewLine; }
                     }
                     button.BackgroundImage = device.getImage();
-                    if (device.name.Equals("airCondition"))
-                    {
+                    if (device.name.Equals("airCondition")) {
                         airCondionLabel.Visible =               device.isOn() ? true : false;
                         airConditionUpDownController.Enabled =  device.isOn() ? true : false;
                         airConditionComboController.Enabled =   device.isOn() ? true : false;
                         airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Cyan;
                     }
                 }
+            }
         }
 
         private void deviceLeave(object sender, EventArgs e)
@@ -84,8 +79,7 @@ namespace ClickAtHome
             Button button = sender as Button;
             string name = button.Name.Replace("Button", "");
             foreach (Device device in deviceList)
-                if (device.name.Equals(name))
-                {
+                if (device.name.Equals(name)) {
                     device.leave();
                     button.BackgroundImage = device.getImage();
                 }
@@ -97,8 +91,7 @@ namespace ClickAtHome
             Button button = sender as Button;
             string name = button.Name.Replace("Button", "");
             foreach (Device device in deviceList)
-                if (device.name.Equals(name))
-                {
+                if (device.name.Equals(name)) {
                     device.hover();
                     button.BackgroundImage = device.getImage();
                 }
@@ -136,14 +129,16 @@ namespace ClickAtHome
         }
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Hide();
+            new Form2().ShowDialog();
             Close();
-            new Form2().Show();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Hide();
+            new Form1().ShowDialog();
             Close();
-            new Form1().Show();
         }
     }
 }

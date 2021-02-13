@@ -44,8 +44,8 @@
             this.coffeeButton = new System.Windows.Forms.PictureBox();
             this.addMovementButton = new System.Windows.Forms.PictureBox();
             this.mapBox = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.signOutLabel = new System.Windows.Forms.LinkLabel();
+            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nextMapButton)).BeginInit();
@@ -58,7 +58,7 @@
             // movementNumberLabel
             // 
             this.movementNumberLabel.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.movementNumberLabel.Location = new System.Drawing.Point(16, 45);
+            this.movementNumberLabel.Location = new System.Drawing.Point(12, 59);
             this.movementNumberLabel.Name = "movementNumberLabel";
             this.movementNumberLabel.Size = new System.Drawing.Size(40, 23);
             this.movementNumberLabel.TabIndex = 21;
@@ -76,19 +76,24 @@
             "ΠΑΡΟΧΗ ΒΟΗΘΕΙΑΣ/ΣΥΝΟΔΕΙΑ ΜΑΘΗΤΗ",
             "ΤΕΛΕΤΗ/ΕΠΙΚΟΙΝΩΝΙΑ ΔΙΑΖΕΥΓΜΕΝΩΝ",
             "ΣΩΜΑΤΙΚΗ ΑΣΚΗΣΗ/ΚΑΤΟΙΚΙΔΙΟ"});
-            this.reason0.Location = new System.Drawing.Point(574, 49);
+            this.reason0.Location = new System.Drawing.Point(570, 63);
             this.reason0.Name = "reason0";
             this.reason0.Size = new System.Drawing.Size(230, 24);
             this.reason0.TabIndex = 20;
             this.reason0.Text = "ΛΟΓΟΣ ΜΕΤΑΚΙΝΗΣΗΣ";
+            this.reason0.SelectedIndexChanged += new System.EventHandler(this.comboSelectedIndexChanged);
+            this.reason0.Leave += new System.EventHandler(this.comboLeave);
             // 
             // destTextBox0
             // 
             this.destTextBox0.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.destTextBox0.Location = new System.Drawing.Point(62, 49);
+            this.destTextBox0.Location = new System.Drawing.Point(58, 63);
             this.destTextBox0.Name = "destTextBox0";
             this.destTextBox0.Size = new System.Drawing.Size(200, 21);
             this.destTextBox0.TabIndex = 15;
+            this.destTextBox0.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            this.destTextBox0.Enter += new System.EventHandler(this.TextBox_Enter);
+            this.destTextBox0.Leave += new System.EventHandler(this.TextBox_Leave);
             // 
             // meansOfTransport0
             // 
@@ -99,40 +104,45 @@
             "ΠΟΔΗΛΑΤΟ",
             "ΑΥΤΟΚΙΝΗΤΟ/ΜΟΤΟΣΥΚΛΕΤΑ",
             "ΜΜΜ"});
-            this.meansOfTransport0.Location = new System.Drawing.Point(358, 49);
+            this.meansOfTransport0.Location = new System.Drawing.Point(354, 63);
             this.meansOfTransport0.Name = "meansOfTransport0";
             this.meansOfTransport0.Size = new System.Drawing.Size(200, 24);
             this.meansOfTransport0.TabIndex = 19;
             this.meansOfTransport0.Text = "ΜΕΣΟ ΜΕΤΑΚΙΝΗΣΗΣ";
+            this.meansOfTransport0.SelectedIndexChanged += new System.EventHandler(this.comboSelectedIndexChanged);
+            this.meansOfTransport0.Leave += new System.EventHandler(this.comboLeave);
             // 
             // TopLabel
             // 
             this.TopLabel.AutoSize = true;
-            this.TopLabel.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.TopLabel.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.TopLabel.Location = new System.Drawing.Point(12, 9);
             this.TopLabel.Name = "TopLabel";
-            this.TopLabel.Size = new System.Drawing.Size(0, 22);
+            this.TopLabel.Size = new System.Drawing.Size(0, 21);
             this.TopLabel.TabIndex = 22;
             // 
             // mapPagesLabel
             // 
             this.mapPagesLabel.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.mapPagesLabel.Location = new System.Drawing.Point(1146, 576);
+            this.mapPagesLabel.Location = new System.Drawing.Point(1152, 600);
             this.mapPagesLabel.Name = "mapPagesLabel";
-            this.mapPagesLabel.Size = new System.Drawing.Size(64, 50);
+            this.mapPagesLabel.Size = new System.Drawing.Size(64, 40);
             this.mapPagesLabel.TabIndex = 17;
             this.mapPagesLabel.Text = "0/0";
             this.mapPagesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timeMaskedTextBox0
             // 
-            this.timeMaskedTextBox0.Location = new System.Drawing.Point(278, 50);
+            this.timeMaskedTextBox0.Location = new System.Drawing.Point(274, 64);
             this.timeMaskedTextBox0.Mask = "00:00";
             this.timeMaskedTextBox0.Name = "timeMaskedTextBox0";
             this.timeMaskedTextBox0.Size = new System.Drawing.Size(64, 20);
             this.timeMaskedTextBox0.TabIndex = 18;
             this.timeMaskedTextBox0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timeMaskedTextBox0.ValidatingType = typeof(System.DateTime);
+            this.timeMaskedTextBox0.TextChanged += new System.EventHandler(this.timeMaskedTextBox_TextChanged);
+            this.timeMaskedTextBox0.Enter += new System.EventHandler(this.timeMaskedTextBox_Enter);
+            this.timeMaskedTextBox0.Validated += new System.EventHandler(this.timeMaskedTextBox_Validated);
             // 
             // errorProvider
             // 
@@ -142,81 +152,91 @@
             // 
             this.nextMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.nextMapButton;
             this.nextMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nextMapButton.Location = new System.Drawing.Point(1216, 576);
+            this.nextMapButton.Location = new System.Drawing.Point(1222, 600);
             this.nextMapButton.Name = "nextMapButton";
-            this.nextMapButton.Size = new System.Drawing.Size(50, 50);
+            this.nextMapButton.Size = new System.Drawing.Size(40, 40);
             this.nextMapButton.TabIndex = 26;
             this.nextMapButton.TabStop = false;
+            this.nextMapButton.Click += new System.EventHandler(this.nextMapButton_Click);
             // 
             // previousMapButton
             // 
             this.previousMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.previousMapButton;
             this.previousMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.previousMapButton.Location = new System.Drawing.Point(1090, 576);
+            this.previousMapButton.Location = new System.Drawing.Point(1106, 600);
             this.previousMapButton.Name = "previousMapButton";
-            this.previousMapButton.Size = new System.Drawing.Size(50, 50);
+            this.previousMapButton.Size = new System.Drawing.Size(40, 40);
             this.previousMapButton.TabIndex = 25;
             this.previousMapButton.TabStop = false;
+            this.previousMapButton.Click += new System.EventHandler(this.previousMapButton_Click);
+            this.previousMapButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.previousMapButton.MouseHover += new System.EventHandler(this.button_MouseHover);
             // 
             // coffeeButton
             // 
             this.coffeeButton.BackgroundImage = global::ClickAtHome.Properties.Resources.coffeeButton;
-            this.coffeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.coffeeButton.Location = new System.Drawing.Point(1069, 629);
+            this.coffeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coffeeButton.Location = new System.Drawing.Point(1106, 646);
             this.coffeeButton.Name = "coffeeButton";
-            this.coffeeButton.Size = new System.Drawing.Size(217, 118);
+            this.coffeeButton.Size = new System.Drawing.Size(154, 90);
             this.coffeeButton.TabIndex = 24;
             this.coffeeButton.TabStop = false;
+            this.coffeeButton.Click += new System.EventHandler(this.coffeeButton_Click);
+            this.coffeeButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.coffeeButton.MouseHover += new System.EventHandler(this.button_MouseHover);
             // 
             // addMovementButton
             // 
             this.addMovementButton.BackgroundImage = global::ClickAtHome.Properties.Resources.addMovementButton;
             this.addMovementButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addMovementButton.Location = new System.Drawing.Point(820, 48);
+            this.addMovementButton.Location = new System.Drawing.Point(816, 62);
             this.addMovementButton.Name = "addMovementButton";
             this.addMovementButton.Size = new System.Drawing.Size(25, 25);
             this.addMovementButton.TabIndex = 23;
             this.addMovementButton.TabStop = false;
+            this.addMovementButton.Click += new System.EventHandler(this.addMovement);
+            this.addMovementButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.addMovementButton.MouseHover += new System.EventHandler(this.button_MouseHover);
             // 
             // mapBox
             // 
             this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
             this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mapBox.Location = new System.Drawing.Point(891, 48);
+            this.mapBox.Location = new System.Drawing.Point(887, 62);
             this.mapBox.Name = "mapBox";
             this.mapBox.Size = new System.Drawing.Size(561, 522);
             this.mapBox.TabIndex = 16;
             this.mapBox.TabStop = false;
             // 
-            // linkLabel1
+            // signOutLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.linkLabel1.Location = new System.Drawing.Point(1290, 9);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(91, 16);
-            this.linkLabel1.TabIndex = 78;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Αποσύνδεση";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.signOutLabel.AutoSize = true;
+            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.signOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signOutLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.signOutLabel.Location = new System.Drawing.Point(1290, 9);
+            this.signOutLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signOutLabel.Name = "signOutLabel";
+            this.signOutLabel.Size = new System.Drawing.Size(91, 16);
+            this.signOutLabel.TabIndex = 78;
+            this.signOutLabel.TabStop = true;
+            this.signOutLabel.Text = "Αποσύνδεση";
+            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signOutLabel_LinkClicked);
             // 
-            // linkLabel2
+            // startScreenLabel
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel2.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.linkLabel2.Location = new System.Drawing.Point(1184, 9);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(96, 16);
-            this.linkLabel2.TabIndex = 77;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Αρχική σελίδα";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.startScreenLabel.AutoSize = true;
+            this.startScreenLabel.BackColor = System.Drawing.Color.Transparent;
+            this.startScreenLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startScreenLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.startScreenLabel.Location = new System.Drawing.Point(1184, 9);
+            this.startScreenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startScreenLabel.Name = "startScreenLabel";
+            this.startScreenLabel.Size = new System.Drawing.Size(96, 16);
+            this.startScreenLabel.TabIndex = 77;
+            this.startScreenLabel.TabStop = true;
+            this.startScreenLabel.Text = "Αρχική σελίδα";
+            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.startScreenLabel_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -242,8 +262,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1464, 793);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.signOutLabel);
+            this.Controls.Add(this.startScreenLabel);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.movementNumberLabel);
             this.Controls.Add(this.reason0);
@@ -287,8 +307,8 @@
         private System.Windows.Forms.PictureBox coffeeButton;
         private System.Windows.Forms.PictureBox addMovementButton;
         private System.Windows.Forms.PictureBox mapBox;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel signOutLabel;
+        private System.Windows.Forms.LinkLabel startScreenLabel;
         private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

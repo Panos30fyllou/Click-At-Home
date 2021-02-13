@@ -482,5 +482,32 @@
   <ItemGroup>
     <None Include="Resources\mapBoxEmptyRect.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dol.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\souvlaki.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tacos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tea.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

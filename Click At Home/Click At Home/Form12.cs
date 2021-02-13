@@ -30,13 +30,9 @@ namespace ClickAtHome
                 means = mns;
                 reason = rsn;
                 map = mp;
-
             }
 
-            public Image getMap()
-            {
-                return map;
-            }
+            public Image getMap(){return map;}
         }
 
         public Form12()
@@ -46,7 +42,6 @@ namespace ClickAtHome
             timemaskedtxtboxes.Add(timeMaskedTextBox0);
             meanscomboboxes.Add(meansOfTransport0);
             reasoncomboboxes.Add(reason0);
-
 
             TopLabel.Text = "Συμπληρώστε τα ακόλουθα πεδία.\nΓια να προσθέσετε νέα διαδρομή, πατήστε το κουμπί '+'";
             destTextBox0.Text = "ΠΡΟΟΡΙΣΜΟΣ";
@@ -58,26 +53,21 @@ namespace ClickAtHome
         private void TextBox_Enter(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ"))
-            {
+            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ")) {
                 textBox.Text = null;
                 textBox.ForeColor = Color.Black;
             }
-
         }
 
         private void TextBox_Leave(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (String.IsNullOrEmpty(textBox.Text) || String.IsNullOrWhiteSpace(textBox.Text))
-            {
-                if (textBox.Location.X == destTextBox0.Location.X)
-                {
+            if (String.IsNullOrEmpty(textBox.Text) || String.IsNullOrWhiteSpace(textBox.Text)) {
+                if (textBox.Location.X == destTextBox0.Location.X) {
                     textBox.Text = "ΠΡΟΟΡΙΣΜΟΣ";
                     textBox.ForeColor = Color.Gray;
                 }
-                else if (textBox.Location.X == timeMaskedTextBox0.Location.X)
-                {
+                else if (textBox.Location.X == timeMaskedTextBox0.Location.X) {
                     textBox.Text = "ΩΡΑ";
                     textBox.ForeColor = Color.Gray;
                 }
@@ -91,8 +81,7 @@ namespace ClickAtHome
             ComboBox meansoftrans = meanscomboboxes[numberOfMovements] as ComboBox;
             ComboBox reas = reasoncomboboxes[numberOfMovements] as ComboBox;
 
-            if (!String.IsNullOrEmpty(desttxtbox.Text.Trim()) && timemaskedtxtbox.MaskCompleted && meansoftrans.SelectedIndex >= 0 && reas.SelectedIndex >= 0)
-            {
+            if (!String.IsNullOrEmpty(desttxtbox.Text.Trim()) && timemaskedtxtbox.MaskCompleted && meansoftrans.SelectedIndex >= 0 && reas.SelectedIndex >= 0) {
                 PictureBox addButton = sender as PictureBox;
                 numberOfMovements++;
                 currentMovement = numberOfMovements;
@@ -219,16 +208,9 @@ namespace ClickAtHome
         ///////////////////////////////
         ///     ComboBox Events     ///
         ///////////////////////////////
-        private void comboLeave(object sender, EventArgs e)
-        {
-            checkForError_inComboBox(sender);
-        }
+        private void comboLeave(object sender, EventArgs e){    checkForError_inComboBox(sender);   }
 
-        private void comboSelectedIndexChanged(object sender, EventArgs e)
-        {
-            checkForError_inComboBox(sender);
-
-        }
+        private void comboSelectedIndexChanged(object sender, EventArgs e){     checkForError_inComboBox(sender);   }
 
         ///////////////////////////////
         ///     Error Checkers      ///
@@ -236,22 +218,18 @@ namespace ClickAtHome
         private void checkForError_inComboBox(object sender)
         {
             ComboBox comboBox = sender as ComboBox;
-            if (comboBox.SelectedIndex < 0)
-                errorProvider.SetError(comboBox, "Απαραίτητο Πεδίο");
-            else
-                errorProvider.Clear();
+            if (comboBox.SelectedIndex < 0)     errorProvider.SetError(comboBox, "Απαραίτητο Πεδίο");
+            else                                errorProvider.Clear();
         }
 
         private void checkForError_inMaskedTextBox(object sender)
         {
             MaskedTextBox maskedTextBox = sender as MaskedTextBox;
-            if (TimeSpan.TryParse(maskedTextBox.Text, out var dummyOutput))
-            {
+            if (TimeSpan.TryParse(maskedTextBox.Text, out var dummyOutput)){ //Is true if the text int he masked textbox is a valid time
                 errorProvider.Clear();
                 maskedTextBox.ForeColor = Color.Black;
             }
-            else
-            {
+            else {
                 errorProvider.SetError(maskedTextBox, "Μη έγκυρη μορφή ώρας");
                 maskedTextBox.ForeColor = Color.Red;
             }
@@ -284,29 +262,19 @@ namespace ClickAtHome
 
         private void updateMapPagesLabel()
         {
-            if (currentMovement > 0)
-                mapPagesLabel.Text = currentMovement.ToString() + "/" + numberOfMovements.ToString();
+            if (currentMovement > 0) mapPagesLabel.Text = currentMovement.ToString() + "/" + numberOfMovements.ToString();
         }
 
         private String mapPager_Turn(int by)
         {
-            if (by == -1)
-            {
-                currentMovement--;
-                return currentMovement.ToString() + "/" + numberOfMovements.ToString();
-            }
-            else if (by == 1)
-            {
-                currentMovement++;
-                return currentMovement.ToString() + "/" + numberOfMovements.ToString();
-            }
+            if      (by == -1) { currentMovement--;     return currentMovement.ToString() + "/" + numberOfMovements.ToString(); }
+            else if (by == 1) { currentMovement++;      return currentMovement.ToString() + "/" + numberOfMovements.ToString(); }
             else return null;
         }
 
         private void previousMapButton_Click(object sender, EventArgs e)
         {
-            if (currentMovement > 1)
-            {
+            if (currentMovement > 1) {
                 mapPagesLabel.Text = mapPager_Turn(-1);
                 updateMap();
                 updateMapPagesLabel();
@@ -315,8 +283,7 @@ namespace ClickAtHome
 
         private void nextMapButton_Click(object sender, EventArgs e)
         {
-            if (currentMovement < numberOfMovements)
-            {
+            if (currentMovement < numberOfMovements) {
                 mapPagesLabel.Text = mapPager_Turn(1);
                 updateMap();
                 updateMapPagesLabel();
@@ -325,62 +292,25 @@ namespace ClickAtHome
 
         private void coffeeButton_Click(object sender, EventArgs e)
         {
-            if (currentMovement >= 1)
-            {
-                Form13 coffee = new Form13(timemaskedtxtboxes[currentMovement - 1].Text);
-                coffee.Show();
-            }
+            if (currentMovement >= 1)  new Form13(timemaskedtxtboxes[currentMovement - 1].Text).ShowDialog();  
         }
 
-        private void coffeeButton_MouseHover(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-        }
+        private void button_MouseHover(object sender, EventArgs e){ Cursor = Cursors.Hand;  }
 
-        private void coffeeButton_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
+        private void button_MouseLeave(object sender, EventArgs e){ Cursor = Cursors.Default;   }
 
-        private void addMovementButton_MouseHover(object sender, EventArgs e)
+        private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Cursor = Cursors.Hand;
-        }
-
-        private void addMovementButton_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
-
-        private void nextMapButton_MouseHover(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-        }
-
-        private void nextMapButton_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
-
-        private void previousMapButton_MouseHover(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Hand;
-        }
-
-        private void previousMapButton_MouseLeave(object sender, EventArgs e)
-        {
-            Cursor = Cursors.Default;
-        }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
+            Hide();
+            new Form2().ShowDialog();
             Close();
-            new Form2().Show();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void signOutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Hide();
+            new Form1().ShowDialog();
             Close();
-            new Form1().Show();
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

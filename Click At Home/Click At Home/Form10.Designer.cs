@@ -33,15 +33,15 @@
             this.topLabel = new System.Windows.Forms.Label();
             this.blinkTimer = new System.Windows.Forms.Timer(this.components);
             this.autoTurnOffTimer = new System.Windows.Forms.Timer(this.components);
+            this.signOutLabel = new System.Windows.Forms.LinkLabel();
+            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.mapBox = new System.Windows.Forms.PictureBox();
             this.pointer = new System.Windows.Forms.PictureBox();
             this.TempLabel = new System.Windows.Forms.Label();
             this.thermometerAnalog = new System.Windows.Forms.PictureBox();
             this.onOffButton = new System.Windows.Forms.PictureBox();
-            this.signOutLabel = new System.Windows.Forms.LinkLabel();
-            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thermometerAnalog)).BeginInit();
@@ -65,6 +65,53 @@
             // autoTurnOffTimer
             // 
             this.autoTurnOffTimer.Interval = 60000;
+            // 
+            // signOutLabel
+            // 
+            this.signOutLabel.AutoSize = true;
+            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.signOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signOutLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.signOutLabel.Location = new System.Drawing.Point(1456, 9);
+            this.signOutLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signOutLabel.Name = "signOutLabel";
+            this.signOutLabel.Size = new System.Drawing.Size(91, 16);
+            this.signOutLabel.TabIndex = 81;
+            this.signOutLabel.TabStop = true;
+            this.signOutLabel.Text = "Αποσύνδεση";
+            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signOutLabel_LinkClicked);
+            // 
+            // startScreenLabel
+            // 
+            this.startScreenLabel.AutoSize = true;
+            this.startScreenLabel.BackColor = System.Drawing.Color.Transparent;
+            this.startScreenLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startScreenLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.startScreenLabel.Location = new System.Drawing.Point(1350, 9);
+            this.startScreenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startScreenLabel.Name = "startScreenLabel";
+            this.startScreenLabel.Size = new System.Drawing.Size(96, 16);
+            this.startScreenLabel.TabIndex = 80;
+            this.startScreenLabel.TabStop = true;
+            this.startScreenLabel.Text = "Αρχική σελίδα";
+            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.startScreenLabel_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel3.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.linkLabel3.Location = new System.Drawing.Point(1555, 9);
+            this.linkLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(59, 16);
+            this.linkLabel3.TabIndex = 79;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Βοήθεια";
             // 
             // InfoLabel
             // 
@@ -130,53 +177,6 @@
             this.onOffButton.MouseLeave += new System.EventHandler(this.onOffButton_MouseLeave);
             this.onOffButton.MouseHover += new System.EventHandler(this.onOffButton_MouseHover);
             // 
-            // signOutLabel
-            // 
-            this.signOutLabel.AutoSize = true;
-            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
-            this.signOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.signOutLabel.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.signOutLabel.Location = new System.Drawing.Point(1456, 9);
-            this.signOutLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.signOutLabel.Name = "signOutLabel";
-            this.signOutLabel.Size = new System.Drawing.Size(91, 16);
-            this.signOutLabel.TabIndex = 81;
-            this.signOutLabel.TabStop = true;
-            this.signOutLabel.Text = "Αποσύνδεση";
-            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signOutLabel_LinkClicked);
-            // 
-            // startScreenLabel
-            // 
-            this.startScreenLabel.AutoSize = true;
-            this.startScreenLabel.BackColor = System.Drawing.Color.Transparent;
-            this.startScreenLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.startScreenLabel.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.startScreenLabel.Location = new System.Drawing.Point(1350, 9);
-            this.startScreenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.startScreenLabel.Name = "startScreenLabel";
-            this.startScreenLabel.Size = new System.Drawing.Size(96, 16);
-            this.startScreenLabel.TabIndex = 80;
-            this.startScreenLabel.TabStop = true;
-            this.startScreenLabel.Text = "Αρχική σελίδα";
-            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.startScreenLabel_LinkClicked);
-            // 
-            // linkLabel3
-            // 
-            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel3.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.linkLabel3.Location = new System.Drawing.Point(1555, 9);
-            this.linkLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(59, 16);
-            this.linkLabel3.TabIndex = 79;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Βοήθεια";
-            // 
             // Form10
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,7 +195,7 @@
             this.Controls.Add(this.onOffButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form10";
-            this.Text = "Form10";
+            this.Text = "Electronic Thermometer";
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thermometerAnalog)).EndInit();

@@ -54,6 +54,7 @@ namespace ClickAtHome
             this.timeMaskedTextBox.TabIndex = 19;
             this.timeMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timeMaskedTextBox.ValidatingType = typeof(System.DateTime);
+            this.timeMaskedTextBox.TextChanged += new System.EventHandler(this.timeMaskedTextBox_TextChanged);
             // 
             // label3
             // 
@@ -110,6 +111,7 @@ namespace ClickAtHome
             this.sendButton.TabIndex = 12;
             this.sendButton.Text = "ΑΠΟΣΤΟΛΗ ΠΑΡΑΓΓΕΛΙΑΣ";
             this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // cancelButton
             // 
@@ -120,6 +122,7 @@ namespace ClickAtHome
             this.cancelButton.TabIndex = 11;
             this.cancelButton.Text = "ΑΚΥΡΩΣΗ";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // errorProvider
             // 
@@ -127,6 +130,7 @@ namespace ClickAtHome
             // 
             // mapBox
             // 
+            this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
             this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mapBox.Location = new System.Drawing.Point(14, 14);
             this.mapBox.Name = "mapBox";

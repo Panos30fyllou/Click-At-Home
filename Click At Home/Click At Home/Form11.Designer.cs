@@ -47,8 +47,8 @@
             this.bedLamp2Button = new System.Windows.Forms.Button();
             this.bedLamp1Button = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.signOutLabel = new System.Windows.Forms.LinkLabel();
+            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.airConditionUpDownController)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,6 +140,7 @@
             // airCondionLabel
             // 
             this.airCondionLabel.AutoSize = true;
+            this.airCondionLabel.BackColor = System.Drawing.SystemColors.Control;
             this.airCondionLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.airCondionLabel.Location = new System.Drawing.Point(570, 69);
             this.airCondionLabel.Name = "airCondionLabel";
@@ -282,35 +283,35 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // linkLabel1
+            // signOutLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.linkLabel1.Location = new System.Drawing.Point(1616, 9);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(91, 16);
-            this.linkLabel1.TabIndex = 81;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Αποσύνδεση";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.signOutLabel.AutoSize = true;
+            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.signOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signOutLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.signOutLabel.Location = new System.Drawing.Point(1616, 9);
+            this.signOutLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signOutLabel.Name = "signOutLabel";
+            this.signOutLabel.Size = new System.Drawing.Size(91, 16);
+            this.signOutLabel.TabIndex = 81;
+            this.signOutLabel.TabStop = true;
+            this.signOutLabel.Text = "Αποσύνδεση";
+            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // linkLabel2
+            // startScreenLabel
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel2.Font = new System.Drawing.Font("Arial", 10.2F);
-            this.linkLabel2.Location = new System.Drawing.Point(1510, 9);
-            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(96, 16);
-            this.linkLabel2.TabIndex = 80;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Αρχική σελίδα";
-            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.startScreenLabel.AutoSize = true;
+            this.startScreenLabel.BackColor = System.Drawing.Color.Transparent;
+            this.startScreenLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startScreenLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.startScreenLabel.Location = new System.Drawing.Point(1510, 9);
+            this.startScreenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startScreenLabel.Name = "startScreenLabel";
+            this.startScreenLabel.Size = new System.Drawing.Size(96, 16);
+            this.startScreenLabel.TabIndex = 80;
+            this.startScreenLabel.TabStop = true;
+            this.startScreenLabel.Text = "Αρχική σελίδα";
+            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -335,8 +336,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
             this.ClientSize = new System.Drawing.Size(1784, 721);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.signOutLabel);
+            this.Controls.Add(this.startScreenLabel);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -383,8 +384,8 @@
         private System.Windows.Forms.Button bedLamp2Button;
         private System.Windows.Forms.Button bedLamp1Button;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel signOutLabel;
+        private System.Windows.Forms.LinkLabel startScreenLabel;
         private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }
