@@ -21,31 +21,28 @@ namespace ClickAtHome
         private void Form7_Load(object sender, EventArgs e)
         {
             Random r = new Random();
-            int rInt = r.Next(20,50);
-            label4.Text = rInt.ToString() + " λεπτά.";
+            label4.Text = r.Next(20, 50).ToString() + " λεπτά.";
         }
 
-
-        string txt_path = "C:\\Users\\eyaki\\Desktop\\test\\user.txt";
-        string add = "C:\\Users\\eyaki\\Desktop\\test\\address.txt";
+        string txt_path = Application.StartupPath + @"\user.txt";
+        string add = Application.StartupPath + @"\address.txt";
         //Αρχική σελίδα
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
             File.WriteAllText(add, string.Empty);
-            this.Hide();
-            f2.ShowDialog();
-
+            Hide();
+            new Form2().ShowDialog();
+            Close();
         }
 
         //Αποσύνδεση
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
             File.WriteAllText(txt_path, string.Empty);
             File.WriteAllText(add, string.Empty);
-            this.Hide();
-            f1.ShowDialog();
+            Hide();
+            new Form1().ShowDialog();
+            Close();
         }
 
         private void button3_Click(object sender, EventArgs e)

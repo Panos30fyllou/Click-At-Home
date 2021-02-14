@@ -296,7 +296,7 @@
             this.signOutLabel.TabIndex = 81;
             this.signOutLabel.TabStop = true;
             this.signOutLabel.Text = "Αποσύνδεση";
-            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signOutLabel_LinkClicked);
             // 
             // startScreenLabel
             // 
@@ -311,7 +311,7 @@
             this.startScreenLabel.TabIndex = 80;
             this.startScreenLabel.TabStop = true;
             this.startScreenLabel.Text = "Αρχική σελίδα";
-            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.startScreenLabel_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -357,6 +357,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form11";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Smart Home";
             ((System.ComponentModel.ISupportInitialize)(this.airConditionUpDownController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

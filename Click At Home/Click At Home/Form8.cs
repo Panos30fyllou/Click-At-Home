@@ -10,8 +10,9 @@ namespace ClickAtHome
             InitializeComponent();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void signOutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            timer1.Stop();
             Hide();
             Form1 f1 = new Form1();
             f1.ShowDialog();
@@ -20,14 +21,14 @@ namespace ClickAtHome
 
         private void Form8_Load(object sender, EventArgs e)
         {
-            
-            timer1.Enabled = true;
+            timer1.Start();
             richTextBox1.Text = string.Empty;
         }
 
         //Προηγούμενη σελίδα
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             Hide();
             Form2 f2 = new Form2();
             f2.ShowDialog();
@@ -46,12 +47,12 @@ namespace ClickAtHome
                 errorProvider1.SetError(textBox1, "Το πεδίο ενδέχεται να είναι κενό");
                 errorProvider1.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό");
             }
-            else if ((textBox2.Text == "Τηλέφωνο" || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))))
+            else if (textBox2.Text == "Τηλέφωνο" || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
             {
                 richTextBox1.Text += "Δεν έχει συμπληρωθεί τηλέφωνο επικοινωνίας για την επαφή με όνομα : " + textBox1.Text + "." + Environment.NewLine;
                 errorProvider1.SetError(textBox2, "Το πεδίο είναι κενό");
             }
-            else if ((textBox1.Text == "Όνομα" || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))))
+            else if (textBox1.Text == "Όνομα" || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
             {
                 richTextBox1.Text += "Γίνεται κλήση του αριθμού " + textBox2.Text + ". Δεν έχει προστεθεί όνομα" + Environment.NewLine;
                 errorProvider1.SetError(textBox1, "Το πεδίο είναι κενό");
@@ -78,7 +79,7 @@ namespace ClickAtHome
                 richTextBox1.Text += "Δεν έχει συμπληρωθεί τηλέφωνο επικοινωνίας για την επαφή επιβλέποντος γιατρού : " + textBox3.Text + "." + Environment.NewLine + Environment.NewLine;
                 errorProvider1.SetError(textBox4, "Το πεδίο είναι κενό");
             }
-            else if ((textBox3.Text == "Όνομα" || (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))))
+            else if (textBox3.Text == "Όνομα" || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))
             {
                 richTextBox1.Text += "Γίνεται κλήση του αριθμού " + textBox4.Text + ". Δεν έχει προστεθεί όνομα" + Environment.NewLine + Environment.NewLine;
                 errorProvider1.SetError(textBox3, "Το πεδίο είναι κενό");
@@ -100,11 +101,12 @@ namespace ClickAtHome
             if (rInt > 160)
             {
                 Form9 f9 = new Form9();
-                timer1.Enabled = false;
+                timer1.Stop();
                 f9.emergency = this.textBox2.Text;
                 f9.doctor = this.textBox4.Text;
-                this.Hide();
+                Hide();
                 f9.ShowDialog();
+                Close();
             }
             else if ( rInt > 128 && rInt <= 150)
                 richTextBox1.Text += "Οι παλμοί σας είναι πάνω απο το επιθυμητό στόχο αλλά μέσα στα φυσιολογικά όρια." + Environment.NewLine + Environment.NewLine;
@@ -142,9 +144,17 @@ namespace ClickAtHome
 
         private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            timer1.Stop();
+            Hide();
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            Close();
         }
 
+        private void Form8_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+        }
         //τέλος
     }
 }

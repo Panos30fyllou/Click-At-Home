@@ -130,7 +130,7 @@ namespace ClickAtHome
             // 
             // mapBox
             // 
-            this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
+            this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxCoffee;
             this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mapBox.Location = new System.Drawing.Point(14, 14);
             this.mapBox.Name = "mapBox";
@@ -155,6 +155,7 @@ namespace ClickAtHome
             this.Controls.Add(this.cancelButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form13";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Order";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).EndInit();

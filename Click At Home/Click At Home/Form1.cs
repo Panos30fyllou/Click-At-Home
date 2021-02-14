@@ -25,9 +25,9 @@ namespace ClickAtHome
             if (textBox3.Visible == false)
             {
                 //Αν τα πεδία είναι σωστά συμπληρωμένα πραγματοποιείται η σύνδεση και ανοίγει η νέα φόρμα , αλλιώς εμφανίζεται μήνυμα λάθους.
-                if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)) || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text)))
+                if (isEmail == false || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                 {
-                    if (isEmail == false || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text)))
+                    if (isEmail == false || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
                         errorProvider1.SetError(textBox1, "Λανθασμένη μορφή e-mail.");
                     if (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
                         errorProvider2.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό.");

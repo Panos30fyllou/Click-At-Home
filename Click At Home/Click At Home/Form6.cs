@@ -15,7 +15,7 @@ namespace ClickAtHome
         string txt_path = Application.StartupPath + @"\user.txt";
         string add = Application.StartupPath + @"\address.txt";
 
-        //Εμφανίζει τη διεύθυνση και το τ.κ. που είχε συμπληρώσει ο χρήστης στη φόρμα 3
+        //Εμφανίζει τη διεύθυνση και τον Τ.Κ. που είχε συμπληρώσει ο χρήστης στη φόρμα 3
         private void Form6_Load(object sender, EventArgs e)
         {
             StreamReader Textfile = new StreamReader(add);
@@ -66,19 +66,16 @@ namespace ClickAtHome
 
             if (if1 == true && if2 == true){
                 Hide();
-                Form7 f7 = new Form7();
-                f7.ShowDialog();
+                new Form7().ShowDialog();
                 Close();
             }
-
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             File.WriteAllText(add, string.Empty);
             Hide();
-            Form2 f2 = new Form2();
-            f2.ShowDialog();
+            new Form2().ShowDialog();
             Close();
         }
 
@@ -88,8 +85,7 @@ namespace ClickAtHome
             File.WriteAllText(txt_path, string.Empty);
             File.WriteAllText(add, string.Empty);
             Hide();
-            Form1 f1 = new Form1();
-            f1.ShowDialog();
+            new Form1().ShowDialog();
             Close();
         }
 
@@ -97,8 +93,7 @@ namespace ClickAtHome
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Hide();
-            Form5 f5 = new Form5();
-            f5.ShowDialog();
+            new Form5().ShowDialog();
             Close();
         }
 

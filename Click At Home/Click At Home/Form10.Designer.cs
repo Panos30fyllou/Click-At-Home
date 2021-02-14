@@ -195,6 +195,7 @@
             this.Controls.Add(this.onOffButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form10";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Electronic Thermometer";
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointer)).EndInit();

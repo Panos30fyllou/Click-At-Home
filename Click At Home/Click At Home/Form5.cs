@@ -50,7 +50,7 @@ namespace ClickAtHome
                     total = total + food_cnt[i] * price[i];
                     counter++;
                 }
-                //Μέσα στην else if θα μπει μόνο στη πρώτη επανάληψη ώστε να γεμίσει τη πρώτη σειρά που υπαρχει ήδη στη φόρμα
+                //Μέσα στην else if θα μπει μόνο στην πρώτη επανάληψη ώστε να γεμίσει την πρώτη σειρά που υπάρχει ήδη στη φόρμα
                 else if (food_cnt[i] > 0 && counter == 0) {
                     textBox1.Text = lb_food[i];
                     numericUpDown1.Value = food_cnt[i];
@@ -103,10 +103,10 @@ namespace ClickAtHome
             //ο αριθμός του numericUpDown που πατήθηκε
             string name = (num.Name).Substring((num.Name).Length - 1);
             int number = Int32.Parse(name);
-            //οι παρακάτω μεταβλητές θα κρατάνε σε κάθε επανάληξη τον αριθμό κάθε textbox που δημιουργήθηκε
+            //οι παρακάτω μεταβλητές θα κρατάνε σε κάθε επανάληψη τον αριθμό κάθε textbox που δημιουργήθηκε
             string nametxt;
             int numtxt;
-            //η παρακάτω μεταβλητή είναι το περιεχόμενο του textbox που προηγήτε του numericUpDown που πατήθηκε
+            //η παρακάτω μεταβλητή είναι το περιεχόμενο του textbox που προηγείται του numericUpDown που πατήθηκε
             string text;
             for (int i = 0; i < textbox_list.Count; i++){
                 nametxt = (textbox[i]).Substring((textbox[i]).Length - 1);
@@ -128,9 +128,8 @@ namespace ClickAtHome
                 }
 
             }
-            //τελος
+            //τέλος
         }
-
 
         string txt_path = Application.StartupPath + @"\user.txt";
         string add = Application.StartupPath + @"\address.txt";
@@ -161,7 +160,7 @@ namespace ClickAtHome
 
         }
 
-        //Σε περίπτωση που πατηθεί το numericUpDown της πρώτης σειράς , η οποία δεν εμφανίζεται δυναμκά στη φόρμα
+        //Σε περίπτωση που πατηθεί το numericUpDown της πρώτης σειράς, η οποία δεν εμφανίζεται δυναμικά στη φόρμα
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             string text = textBox1.Text;

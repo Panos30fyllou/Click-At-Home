@@ -39,14 +39,14 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timeMaskedTextBox0 = new System.Windows.Forms.MaskedTextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.signOutLabel = new System.Windows.Forms.LinkLabel();
+            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.nextMapButton = new System.Windows.Forms.PictureBox();
             this.previousMapButton = new System.Windows.Forms.PictureBox();
             this.coffeeButton = new System.Windows.Forms.PictureBox();
             this.addMovementButton = new System.Windows.Forms.PictureBox();
             this.mapBox = new System.Windows.Forms.PictureBox();
-            this.signOutLabel = new System.Windows.Forms.LinkLabel();
-            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nextMapButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.previousMapButton)).BeginInit();
@@ -124,7 +124,7 @@
             // mapPagesLabel
             // 
             this.mapPagesLabel.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.mapPagesLabel.Location = new System.Drawing.Point(1152, 600);
+            this.mapPagesLabel.Location = new System.Drawing.Point(1132, 601);
             this.mapPagesLabel.Name = "mapPagesLabel";
             this.mapPagesLabel.Size = new System.Drawing.Size(64, 40);
             this.mapPagesLabel.TabIndex = 17;
@@ -147,66 +147,6 @@
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
-            // 
-            // nextMapButton
-            // 
-            this.nextMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.nextMapButton;
-            this.nextMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nextMapButton.Location = new System.Drawing.Point(1222, 600);
-            this.nextMapButton.Name = "nextMapButton";
-            this.nextMapButton.Size = new System.Drawing.Size(40, 40);
-            this.nextMapButton.TabIndex = 26;
-            this.nextMapButton.TabStop = false;
-            this.nextMapButton.Click += new System.EventHandler(this.nextMapButton_Click);
-            // 
-            // previousMapButton
-            // 
-            this.previousMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.previousMapButton;
-            this.previousMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.previousMapButton.Location = new System.Drawing.Point(1106, 600);
-            this.previousMapButton.Name = "previousMapButton";
-            this.previousMapButton.Size = new System.Drawing.Size(40, 40);
-            this.previousMapButton.TabIndex = 25;
-            this.previousMapButton.TabStop = false;
-            this.previousMapButton.Click += new System.EventHandler(this.previousMapButton_Click);
-            this.previousMapButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            this.previousMapButton.MouseHover += new System.EventHandler(this.button_MouseHover);
-            // 
-            // coffeeButton
-            // 
-            this.coffeeButton.BackgroundImage = global::ClickAtHome.Properties.Resources.coffeeButton;
-            this.coffeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coffeeButton.Location = new System.Drawing.Point(1106, 646);
-            this.coffeeButton.Name = "coffeeButton";
-            this.coffeeButton.Size = new System.Drawing.Size(154, 90);
-            this.coffeeButton.TabIndex = 24;
-            this.coffeeButton.TabStop = false;
-            this.coffeeButton.Click += new System.EventHandler(this.coffeeButton_Click);
-            this.coffeeButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            this.coffeeButton.MouseHover += new System.EventHandler(this.button_MouseHover);
-            // 
-            // addMovementButton
-            // 
-            this.addMovementButton.BackgroundImage = global::ClickAtHome.Properties.Resources.addMovementButton;
-            this.addMovementButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.addMovementButton.Location = new System.Drawing.Point(816, 62);
-            this.addMovementButton.Name = "addMovementButton";
-            this.addMovementButton.Size = new System.Drawing.Size(25, 25);
-            this.addMovementButton.TabIndex = 23;
-            this.addMovementButton.TabStop = false;
-            this.addMovementButton.Click += new System.EventHandler(this.addMovement);
-            this.addMovementButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
-            this.addMovementButton.MouseHover += new System.EventHandler(this.button_MouseHover);
-            // 
-            // mapBox
-            // 
-            this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
-            this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mapBox.Location = new System.Drawing.Point(887, 62);
-            this.mapBox.Name = "mapBox";
-            this.mapBox.Size = new System.Drawing.Size(561, 522);
-            this.mapBox.TabIndex = 16;
-            this.mapBox.TabStop = false;
             // 
             // signOutLabel
             // 
@@ -256,6 +196,68 @@
             this.linkLabel3.Text = "Βοήθεια";
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
+            // nextMapButton
+            // 
+            this.nextMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.nextMapButton;
+            this.nextMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.nextMapButton.Location = new System.Drawing.Point(1202, 601);
+            this.nextMapButton.Name = "nextMapButton";
+            this.nextMapButton.Size = new System.Drawing.Size(40, 40);
+            this.nextMapButton.TabIndex = 26;
+            this.nextMapButton.TabStop = false;
+            this.nextMapButton.Click += new System.EventHandler(this.nextMapButton_Click);
+            this.nextMapButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.nextMapButton.MouseHover += new System.EventHandler(this.button_MouseHover);
+            // 
+            // previousMapButton
+            // 
+            this.previousMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.previousMapButton;
+            this.previousMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.previousMapButton.Location = new System.Drawing.Point(1086, 601);
+            this.previousMapButton.Name = "previousMapButton";
+            this.previousMapButton.Size = new System.Drawing.Size(40, 40);
+            this.previousMapButton.TabIndex = 25;
+            this.previousMapButton.TabStop = false;
+            this.previousMapButton.Click += new System.EventHandler(this.previousMapButton_Click);
+            this.previousMapButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.previousMapButton.MouseHover += new System.EventHandler(this.button_MouseHover);
+            // 
+            // coffeeButton
+            // 
+            this.coffeeButton.BackgroundImage = global::ClickAtHome.Properties.Resources.coffeeButton;
+            this.coffeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.coffeeButton.Location = new System.Drawing.Point(1088, 647);
+            this.coffeeButton.Name = "coffeeButton";
+            this.coffeeButton.Size = new System.Drawing.Size(154, 90);
+            this.coffeeButton.TabIndex = 24;
+            this.coffeeButton.TabStop = false;
+            this.coffeeButton.Click += new System.EventHandler(this.coffeeButton_Click);
+            this.coffeeButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.coffeeButton.MouseHover += new System.EventHandler(this.button_MouseHover);
+            // 
+            // addMovementButton
+            // 
+            this.addMovementButton.BackgroundImage = global::ClickAtHome.Properties.Resources.addMovementButton;
+            this.addMovementButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.addMovementButton.Location = new System.Drawing.Point(816, 62);
+            this.addMovementButton.Name = "addMovementButton";
+            this.addMovementButton.Size = new System.Drawing.Size(25, 25);
+            this.addMovementButton.TabIndex = 23;
+            this.addMovementButton.TabStop = false;
+            this.addMovementButton.Click += new System.EventHandler(this.addMovement);
+            this.addMovementButton.MouseLeave += new System.EventHandler(this.button_MouseLeave);
+            this.addMovementButton.MouseHover += new System.EventHandler(this.button_MouseHover);
+            // 
+            // mapBox
+            // 
+            this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
+            this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mapBox.Location = new System.Drawing.Point(887, 62);
+            this.mapBox.Name = "mapBox";
+            this.mapBox.Size = new System.Drawing.Size(561, 522);
+            this.mapBox.TabIndex = 16;
+            this.mapBox.TabStop = false;
+            // 
             // Form12
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +281,7 @@
             this.Controls.Add(this.mapBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form12";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quarantine Planner";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nextMapButton)).EndInit();

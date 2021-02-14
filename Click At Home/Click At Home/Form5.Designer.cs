@@ -52,9 +52,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(325, 170);
+            this.label1.Location = new System.Drawing.Point(244, 138);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 17);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 87;
             // 
             // button1
@@ -63,9 +64,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(325, 554);
+            this.button1.Location = new System.Drawing.Point(244, 450);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(354, 49);
+            this.button1.Size = new System.Drawing.Size(266, 40);
             this.button1.TabIndex = 86;
             this.button1.Text = "Στοιχεία πληρωμής";
             this.button1.UseVisualStyleBackColor = false;
@@ -76,9 +78,10 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::ClickAtHome.Properties.Resources.bc11;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(2, 32);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 26);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(960, 132);
+            this.pictureBox2.Size = new System.Drawing.Size(720, 71);
             this.pictureBox2.TabIndex = 85;
             this.pictureBox2.TabStop = false;
             // 
@@ -87,18 +90,20 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::ClickAtHome.Properties.Resources.arrow2;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 554);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 450);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 49);
+            this.pictureBox1.Size = new System.Drawing.Size(104, 40);
             this.pictureBox1.TabIndex = 84;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(19, 369);
+            this.richTextBox1.Location = new System.Drawing.Point(14, 300);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(724, 168);
+            this.richTextBox1.Size = new System.Drawing.Size(544, 137);
             this.richTextBox1.TabIndex = 83;
             this.richTextBox1.Text = "";
             // 
@@ -108,9 +113,10 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 329);
+            this.label6.Location = new System.Drawing.Point(14, 267);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(261, 34);
+            this.label6.Size = new System.Drawing.Size(213, 27);
             this.label6.TabIndex = 82;
             this.label6.Text = "Σχόλια παραγγελίας";
             // 
@@ -118,9 +124,10 @@
             // 
             this.textBoxTotal.Enabled = false;
             this.textBoxTotal.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(754, 207);
+            this.textBoxTotal.Location = new System.Drawing.Point(560, 131);
+            this.textBoxTotal.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTotal.Name = "textBoxTotal";
-            this.textBoxTotal.Size = new System.Drawing.Size(200, 34);
+            this.textBoxTotal.Size = new System.Drawing.Size(151, 29);
             this.textBoxTotal.TabIndex = 81;
             // 
             // label5
@@ -129,9 +136,10 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(630, 212);
+            this.label5.Location = new System.Drawing.Point(466, 135);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 29);
+            this.label5.Size = new System.Drawing.Size(89, 24);
             this.label5.TabIndex = 80;
             this.label5.Text = "Σύνολο : ";
             // 
@@ -139,18 +147,20 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(754, 170);
+            this.textBox2.Location = new System.Drawing.Point(560, 101);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 34);
+            this.textBox2.Size = new System.Drawing.Size(151, 29);
             this.textBox2.TabIndex = 79;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.numericUpDown1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(506, 170);
+            this.numericUpDown1.Location = new System.Drawing.Point(374, 101);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(237, 34);
+            this.numericUpDown1.Size = new System.Drawing.Size(178, 29);
             this.numericUpDown1.TabIndex = 78;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
@@ -158,9 +168,10 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(18, 170);
+            this.textBox1.Location = new System.Drawing.Point(8, 101);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(473, 34);
+            this.textBox1.Size = new System.Drawing.Size(356, 29);
             this.textBox1.TabIndex = 77;
             // 
             // linkLabel3
@@ -171,9 +182,10 @@
             this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel3.Location = new System.Drawing.Point(766, 9);
+            this.linkLabel3.Location = new System.Drawing.Point(574, 7);
+            this.linkLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(100, 20);
+            this.linkLabel3.Size = new System.Drawing.Size(87, 17);
             this.linkLabel3.TabIndex = 76;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Αποσύνδεση";
@@ -187,9 +199,10 @@
             this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel2.Location = new System.Drawing.Point(644, 9);
+            this.linkLabel2.Location = new System.Drawing.Point(483, 7);
+            this.linkLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(113, 20);
+            this.linkLabel2.Size = new System.Drawing.Size(94, 17);
             this.linkLabel2.TabIndex = 75;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Αρχική σελίδα";
@@ -203,9 +216,10 @@
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(884, 9);
+            this.linkLabel1.Location = new System.Drawing.Point(663, 7);
+            this.linkLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(70, 20);
+            this.linkLabel1.Size = new System.Drawing.Size(59, 17);
             this.linkLabel1.TabIndex = 74;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Βοήθεια";
@@ -213,10 +227,12 @@
             // 
             // Form5
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
             this.BackgroundImage = global::ClickAtHome.Properties.Resources.bc;
-            this.ClientSize = new System.Drawing.Size(963, 663);
+            this.ClientSize = new System.Drawing.Size(722, 539);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox2);
@@ -232,7 +248,9 @@
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form5";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Καλάθι προϊόντων";
             this.Load += new System.EventHandler(this.Form5_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

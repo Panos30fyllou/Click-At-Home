@@ -5,8 +5,16 @@ using System.Windows.Forms;
 
 namespace ClickAtHome
 {
+    /// <summary>
+    /// Instances of the Device class are created. They represent every device in the house. 
+    /// They are stored in a List of Device objects named deviceList.
+    /// </summary>
     public partial class Form11 : Form
     {
+
+        ///////////////////////
+        ///     DEVICES     ///
+        ///////////////////////
         static Device bedlamp1 = new Device("bedLamp1", true, Properties.Resources.bedLamp1On, "Το φωτιστικό1 στην κρεβατοκάμαρα άναψε", "Το φωτιστικό1 στην κρεβατοκάμαρα έσβησε");
         static Device bedlamp2 = new Device("bedLamp2", true, Properties.Resources.bedLamp2On, "Το φωτιστικό2 στην κρεβατοκάμαρα άναψε", "Το φωτιστικό2 στην κρεβατοκάμαρα έσβησε");
         static Device kidsbedlamp = new Device("kidsBedLamp", false, Properties.Resources.kidsBedLampOff, "Το φωτιστικό στο παιδικό δωμάτιο άναψε", "Το φωτιστικό στο παιδικό δωμάτιο έσβησε");
@@ -16,7 +24,11 @@ namespace ClickAtHome
         static Device cofeemaker = new Device("coffeeMaker", false, Properties.Resources.coffeeMakerOff, "Η καφετιέρα ενεργοποιήθηκε", "Η καφετιέρα γέμισε");
         static Device aircondition = new Device("airCondition", false, Properties.Resources.airConditionOff, "Το κλιματιστικό ενεργοποιήθηκε στους ", "Το κλιματιστικό απενεργοποιήθηκε");
 
-        List<Device> deviceList = new List<Device> { bedlamp1, bedlamp2, kidsbedlamp, tv, bathroom1, bathroom2, cofeemaker, aircondition };
+        List<Device> deviceList = new List<Device> { bedlamp1, bedlamp2, kidsbedlamp, tv, bathroom1, bathroom2, cofeemaker, aircondition };     //In this list, every device of the house is stored.
+        
+        ///////////////////////////
+        ///     DEVICE CLASS    ///
+        ///////////////////////////
         public class Device
         {
             public string name;
@@ -33,108 +45,107 @@ namespace ClickAtHome
                 grPhraseOff = phraseOff;
             }
 
-            public bool isOn() { return ison; }
+            /// GETTERS
+            public bool isOn() { return ison; }             
             public Image getImage() { return image; }
 
-            public void turnOff() { ison = false; image = (Image)Properties.Resources.ResourceManager.GetObject(name + "Off"); }
-            public void turnOn() { ison = true; image = (Image)Properties.Resources.ResourceManager.GetObject(name + "On"); }
-            public void hover() { if (ison) image = (Image)Properties.Resources.ResourceManager.GetObject(name + "OnHover"); else image = (Image)Properties.Resources.ResourceManager.GetObject(name + "OffHover"); }
-            public void leave() { if (ison) image = (Image)Properties.Resources.ResourceManager.GetObject(name + "On"); else image = (Image)Properties.Resources.ResourceManager.GetObject(name + "Off"); }
+            //  FUNCTIONS
+            public void turnOff() { ison = false; image =   (Image)Properties.Resources.ResourceManager.GetObject(name + "Off"); }  //Sets the bool ison to false and sets the background image to the on that the device is off.
+            public void turnOn() { ison = true; image =     (Image)Properties.Resources.ResourceManager.GetObject(name + "On"); }   //Sets the bool ison to true and sets the background image to the on that the device is on.
+            public void hover() { if (ison) image =         (Image)Properties.Resources.ResourceManager.GetObject(name + "OnHover");    else image = (Image)Properties.Resources.ResourceManager.GetObject(name + "OffHover"); }    //If the device is on, its background is set to the 'On' version of hover, otherwise to the 'Off' version of it.
+            public void leave() { if (ison) image =         (Image)Properties.Resources.ResourceManager.GetObject(name + "On");         else image = (Image)Properties.Resources.ResourceManager.GetObject(name + "Off"); }         //If the device is on, its background is set to the 'On' version without hover, otherwise to the 'Off' one'
         }
         public Form11()
         {
             InitializeComponent();
-            airConditionComboController.SelectedIndex = 0;
+            airConditionComboController.SelectedIndex = 0;      //Sets the default selection of the aircondition's mode to 'Heat'
         }
 
-        private void deviceClick(object sender, EventArgs e)
+        private void deviceClick(object sender, EventArgs e)    //When a device is clicked:
         {
-            Button button = sender as Button;
-            string name = button.Name.Replace("Button", "");
-            foreach (Device device in deviceList) {
-                if (device.name.Equals(name)) {
-                    if (!device.name.Equals("coffeeMaker")) {
-                        if (device.isOn())  device.turnOff();
+            Button button = sender as Button;                   //Represents the sender as a Button named button.
+            string name = button.Name.Replace("Button", "");    //To get the name of the device we remove the word "Button" from the button's name and store the result to the string 'name'. For example, for the tvButton we remove the Button and the variable name contains 'tv' which is the name of the object we will deal with.
+            foreach (Device device in deviceList) {             //For every Device in the deviceList
+                if (device.name.Equals(name)) {                 //If the object's name matches to the content of 'name'
+                    if (!device.name.Equals("coffeeMaker")) {   //If the device is not the coffee maker
+                        if (device.isOn())  device.turnOff();   //If the device is on, turn it off. Else turn it On.
                         else                device.turnOn();
-                        richTextBox1.Text += (device.isOn() ? (device.name.Equals("airCondition") ? device.grPhraseOn + airCondionLabel.Text + " στην λειτουργία " + airConditionComboController.Text : device.grPhraseOn) : device.grPhraseOff) + Environment.NewLine;
+                        richTextBox1.Text += (device.isOn() ? (device.name.Equals("airCondition") ? device.grPhraseOn + airCondionLabel.Text + " στην λειτουργία " + airConditionComboController.Text : device.grPhraseOn) : device.grPhraseOff) + Environment.NewLine; //If the device is on then add the grPhraseOn. Else add the grPhraseOff. But if it is on and the device is the aircondition then there are also information about it added, like the mode and the temperature.
                     }
-                    else {
-                        if (cofeemaker.isOn()) {    cofeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" + Environment.NewLine; }
-                        else {                      coffeeTimer.Start();    richTextBox1.Text += "Η καφετιέρα ενεργοποιήθηκε" + Environment.NewLine; }
+                    else {                                      //If it is the coffee maker
+                        if (cofeemaker.isOn()) {    cofeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" + Environment.NewLine; }         //If the coffee maker is on, turn it off and inform the user it is empty
+                        else {                      coffeeTimer.Start();    richTextBox1.Text += "Η καφετιέρα ενεργοποιήθηκε" + Environment.NewLine; }  //If the coffee maker is off, start a timer of 5s and then turn it on and inform the user it is filled.
                     }
-                    button.BackgroundImage = device.getImage();
-                    if (device.name.Equals("airCondition")) {
-                        airCondionLabel.Visible =               device.isOn() ? true : false;
-                        airConditionUpDownController.Enabled =  device.isOn() ? true : false;
+                    button.BackgroundImage = device.getImage(); //Update the background image with the new one
+                    if (device.name.Equals("airCondition")) {   //If the device is the aircondition
+                        airCondionLabel.Visible =               device.isOn() ? true : false;   //If the aircondition is on, make the label visible. Else not visible.
+                        airConditionUpDownController.Enabled =  device.isOn() ? true : false;   //If the aircondition is on, make the controllers enabled. Else disable them.
                         airConditionComboController.Enabled =   device.isOn() ? true : false;
-                        airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Cyan;
+                        airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Cyan; //If the aircondition's mode is 'Heat', set the label's forecolor to OrangeRed. Else change it to Cyan.
                     }
                 }
             }
         }
 
-        private void deviceLeave(object sender, EventArgs e)
+        private void deviceLeave(object sender, EventArgs e)    //When the cursor leaves a device:
         {
-            Cursor = Cursors.Default;
-            Button button = sender as Button;
-            string name = button.Name.Replace("Button", "");
-            foreach (Device device in deviceList)
+            Cursor = Cursors.Default;                           //The cursor is set to the Default.
+            Button button = sender as Button;                   //Represents the sender as a Button named button.
+            string name = button.Name.Replace("Button", "");    //Stores device's name to 'name'
+            foreach (Device device in deviceList)               //Finds the device in the deviceList by name
                 if (device.name.Equals(name)) {
-                    device.leave();
-                    button.BackgroundImage = device.getImage();
+                    device.leave();                             //Calls the device's leave function to change the background image.
+                    button.BackgroundImage = device.getImage(); //Updates the button's background image.
                 }
         }
 
-        private void deviceHover(object sender, EventArgs e)
+        private void deviceHover(object sender, EventArgs e)    //When the cursor hovers over a device:
         {
-            Cursor = Cursors.Hand;
-            Button button = sender as Button;
-            string name = button.Name.Replace("Button", "");
-            foreach (Device device in deviceList)
+            Cursor = Cursors.Hand;                              //The cursor is set to Hand.
+            Button button = sender as Button;                   //Represents the sender as a Button named button.
+            string name = button.Name.Replace("Button", "");    //Stores device's name to 'name'
+            foreach (Device device in deviceList)               //Finds the device in the deviceList by name
                 if (device.name.Equals(name)) {
-                    device.hover();
-                    button.BackgroundImage = device.getImage();
+                    device.hover();                             //Calls the device's hover function to change the background image.
+                    button.BackgroundImage = device.getImage(); //Updates the button's background image.
                 }
         }
 
-        private void airConditionController_ValueChanged(object sender, EventArgs e)
+        private void airConditionController_ValueChanged(object sender, EventArgs e)                                                                    //When the value of the temperature controller changes:
         {
-            airCondionLabel.Text = airConditionUpDownController.Value.ToString() + "°C";
-            richTextBox1.Text += "Το κλιματιστικό ρυθμίστηκε στους " + airConditionUpDownController.Value.ToString() + "°C" + Environment.NewLine;
+            airCondionLabel.Text = airConditionUpDownController.Value.ToString() + "°C";                                                                //Update the label of the aircondtion button with the new value.
+            richTextBox1.Text += "Το κλιματιστικό ρυθμίστηκε στους " + airConditionUpDownController.Value.ToString() + "°C" + Environment.NewLine;      //Informs the user by adding a message to the richTextBox
         }
-        private void airConditionComboController_SelectionChangeCommitted(object sender, EventArgs e)
+        private void airConditionComboController_SelectionChangeCommitted(object sender, EventArgs e)                                                   //When the mode of the aircondition changes
         {
-            airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;
-            richTextBox1.Text += "Το κλιματιστικό μπήκε στην λειτουργία " + airConditionComboController.SelectedItem.ToString() + Environment.NewLine;
-        }
-
-        private void coffeeTimer_Tick(object sender, EventArgs e)
-        {
-            coffeeTimer.Stop();
-            cofeemaker.turnOn();
-            coffeeMakerButton.BackgroundImage = cofeemaker.getImage();
-            richTextBox1.Text += "Η καφετιέρα γέμισε και απενεργοποιήθηκε αυτόματα" + Environment.NewLine;
+            airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;             //Update the forecolor of the aircondition button's label. If the mode is 'Heat' set 
+            richTextBox1.Text += "Το κλιματιστικό μπήκε στην λειτουργία " + airConditionComboController.SelectedItem.ToString() + Environment.NewLine;  //Informs the user by adding a message to the richTextBox
         }
 
-        private void airCondionLabel_Click(object sender, EventArgs e)
+        private void coffeeTimer_Tick(object sender, EventArgs e)                                           //This timer ticks every 5s.                   
         {
-            airConditionButton.PerformClick();
+            coffeeTimer.Stop();                                                                             //When the timer ticks, the timer stops
+            cofeemaker.turnOn();                                                                            //The coffee maker is turned On.
+            coffeeMakerButton.BackgroundImage = cofeemaker.getImage();                                      //The coffee maker button's background is updated.
+            richTextBox1.Text += "Η καφετιέρα γέμισε και απενεργοποιήθηκε αυτόματα" + Environment.NewLine;  //Informs the user by adding a message to the richTextBox.
         }
 
-        private void airCondionLabel_MouseHover(object sender, EventArgs e)
+        private void airCondionLabel_Click(object sender, EventArgs e){ airConditionButton.PerformClick();} //If the user clicks on the aircondition's label, since it is not clickable, he obviously wants to click on the airconditionButton, so a click of that button is performed.
+
+        private void airCondionLabel_MouseHover(object sender, EventArgs e)     //If the user hovers over the aircondition's label, he also hovers over the airconditionButton so:
         {
-            Cursor = Cursors.Hand;
-            aircondition.hover();
-            airConditionButton.BackgroundImage = aircondition.getImage();
+            Cursor = Cursors.Hand;                                              //The Cursor is set to Hand.
+            aircondition.hover();                                               //The hover function for the aircondition is called.
+            airConditionButton.BackgroundImage = aircondition.getImage();       //The airconditionButton's background image is updated.
         }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)   //Hides the form, opens a start screen form and closes this one.
         {
-            Hide();
+            Hide();                                                                                 
             new Form2().ShowDialog();
             Close();
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void signOutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)       //Hides the form, opens a sign in screen form and closes this one.
         {
             Hide();
             new Form1().ShowDialog();

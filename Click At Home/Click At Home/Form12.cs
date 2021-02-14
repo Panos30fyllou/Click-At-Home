@@ -50,30 +50,6 @@ namespace ClickAtHome
             updateMapPagesLabel();
         }
 
-        private void TextBox_Enter(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ")) {
-                textBox.Text = null;
-                textBox.ForeColor = Color.Black;
-            }
-        }
-
-        private void TextBox_Leave(object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (String.IsNullOrEmpty(textBox.Text) || String.IsNullOrWhiteSpace(textBox.Text)) {
-                if (textBox.Location.X == destTextBox0.Location.X) {
-                    textBox.Text = "ΠΡΟΟΡΙΣΜΟΣ";
-                    textBox.ForeColor = Color.Gray;
-                }
-                else if (textBox.Location.X == timeMaskedTextBox0.Location.X) {
-                    textBox.Text = "ΩΡΑ";
-                    textBox.ForeColor = Color.Gray;
-                }
-            }
-        }
-
         private void addMovement(object sender, EventArgs e)
         {
             TextBox desttxtbox = desttxtboxes[numberOfMovements] as TextBox;
@@ -104,6 +80,9 @@ namespace ClickAtHome
             duplicateReason(reason0, Y);
         }
 
+        ///////////////////////////////////
+        ///     Duplication Functions   ///
+        ///////////////////////////////////
         private void duplicateLabel(Label bluePrintLabel, int Y)
         {
             Label label = new Label();
@@ -151,15 +130,9 @@ namespace ClickAtHome
             textbox.Name = "timeMaskedTextBox" + movementNumberLabel.ToString();
         }
 
-        private void duplicateMeansOfTransport(ComboBox bluePrintMeansOfTransport, int Y)
-        {
-            duplicateComboBox(bluePrintMeansOfTransport, Y, "ΜΕΣΟ ΜΕΤΑΚΙΝΗΣΗΣ");
-        }
+        private void duplicateMeansOfTransport(ComboBox bluePrintMeansOfTransport, int Y){  duplicateComboBox(bluePrintMeansOfTransport, Y, "ΜΕΣΟ ΜΕΤΑΚΙΝΗΣΗΣ");    }
 
-        private void duplicateReason(ComboBox bluePrintReason, int Y)
-        {
-            duplicateComboBox(bluePrintReason, Y, "ΛΟΓΟΣ ΜΕΤΑΚΙΝΗΣΗΣ");
-        }
+        private void duplicateReason(ComboBox bluePrintReason, int Y){  duplicateComboBox(bluePrintReason, Y, "ΛΟΓΟΣ ΜΕΤΑΚΙΝΗΣΗΣ"); }
 
         private void duplicateComboBox(ComboBox bluePrintReason, int Y, String text)
         {
@@ -180,6 +153,34 @@ namespace ClickAtHome
                 meanscomboboxes.Add(comboBox);
         }
 
+        /////////////////////////////
+        ///     TextBox Events    ///
+        /////////////////////////////
+
+        private void TextBox_Enter(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ")){
+                textBox.Text = null;
+                textBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (String.IsNullOrEmpty(textBox.Text) || String.IsNullOrWhiteSpace(textBox.Text)){
+                if (textBox.Location.X == destTextBox0.Location.X){
+                    textBox.Text = "ΠΡΟΟΡΙΣΜΟΣ";
+                    textBox.ForeColor = Color.Gray;
+                }
+                else if (textBox.Location.X == timeMaskedTextBox0.Location.X){
+                    textBox.Text = "ΩΡΑ";
+                    textBox.ForeColor = Color.Gray;
+                }
+            }
+        }
+
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
@@ -195,15 +196,9 @@ namespace ClickAtHome
             maskedTextBox.ForeColor = Color.Black;
         }
 
-        private void timeMaskedTextBox_Validated(object sender, EventArgs e)
-        {
-            checkForError_inMaskedTextBox(sender);
-        }
+        private void timeMaskedTextBox_Validated(object sender, EventArgs e){   checkForError_inMaskedTextBox(sender);  }
 
-        private void timeMaskedTextBox_TextChanged(object sender, EventArgs e)
-        {
-            checkForError_inMaskedTextBox(sender);
-        }
+        private void timeMaskedTextBox_TextChanged(object sender, EventArgs e){ checkForError_inMaskedTextBox(sender);  }
 
         ///////////////////////////////
         ///     ComboBox Events     ///
@@ -235,9 +230,7 @@ namespace ClickAtHome
             }
         }
 
-
-        //Creates an instance of a Movement objects and adds it in the movementList
-        private void createMovement(String dest, String time, String means, String reason)
+        private void createMovement(String dest, String time, String means, String reason)//Creates an instance of a Movement and adds it in the movementList
         {
             if (reason.Equals("ΕΡΓΑΣΙΑ"))
                 movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxWork));
@@ -255,15 +248,9 @@ namespace ClickAtHome
                 movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxExercise));
         }
 
-        private void updateMap()
-        {
-            mapBox.BackgroundImage = movementList[currentMovement - 1].getMap();
-        }
+        private void updateMap(){   mapBox.BackgroundImage = movementList[currentMovement - 1].getMap();    }
 
-        private void updateMapPagesLabel()
-        {
-            if (currentMovement > 0) mapPagesLabel.Text = currentMovement.ToString() + "/" + numberOfMovements.ToString();
-        }
+        private void updateMapPagesLabel(){ if (currentMovement > 0) mapPagesLabel.Text = currentMovement.ToString() + "/" + numberOfMovements.ToString();  }
 
         private String mapPager_Turn(int by)
         {
@@ -277,7 +264,7 @@ namespace ClickAtHome
             if (currentMovement > 1) {
                 mapPagesLabel.Text = mapPager_Turn(-1);
                 updateMap();
-                updateMapPagesLabel();
+                //updateMapPagesLabel();
             }
         }
 
@@ -286,14 +273,11 @@ namespace ClickAtHome
             if (currentMovement < numberOfMovements) {
                 mapPagesLabel.Text = mapPager_Turn(1);
                 updateMap();
-                updateMapPagesLabel();
+                //wefupdateMapPagesLabel();
             }
         }
 
-        private void coffeeButton_Click(object sender, EventArgs e)
-        {
-            if (currentMovement >= 1)  new Form13(timemaskedtxtboxes[currentMovement - 1].Text).ShowDialog();  
-        }
+        private void coffeeButton_Click(object sender, EventArgs e) {   if (currentMovement >= 1)  new Form13(timemaskedtxtboxes[currentMovement - 1].Text).ShowDialog();  }
 
         private void button_MouseHover(object sender, EventArgs e){ Cursor = Cursors.Hand;  }
 
