@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -164,6 +165,14 @@ namespace ClickAtHome
                 errorProvider5.SetError(maskedTextBox3, "Το πεδίο ενδέχεται να μην είναι ολοκληρωμένο.");
             else
                 errorProvider5.SetError(maskedTextBox3, "");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=21\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
         }
         //τέλος
     }

@@ -513,6 +513,16 @@ namespace ClickAtHome.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coffeeOrdered {
+            get {
+                object obj = ResourceManager.GetObject("coffeeOrdered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delivery {
             get {
                 object obj = ResourceManager.GetObject("delivery", resourceCulture);
@@ -1137,6 +1147,16 @@ namespace ClickAtHome.Properties {
             get {
                 object obj = ResourceManager.GetObject("tvOnHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Εγχειρίδιο_Χρήστη {
+            get {
+                object obj = ResourceManager.GetObject("Εγχειρίδιο_Χρήστη", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

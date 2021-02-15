@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form12));
-            this.movementNumberLabel = new System.Windows.Forms.Label();
+            this.movementNumberLabel0 = new System.Windows.Forms.Label();
             this.reason0 = new System.Windows.Forms.ComboBox();
             this.destTextBox0 = new System.Windows.Forms.TextBox();
             this.meansOfTransport0 = new System.Windows.Forms.ComboBox();
@@ -55,14 +55,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // movementNumberLabel
+            // movementNumberLabel0
             // 
-            this.movementNumberLabel.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
-            this.movementNumberLabel.Location = new System.Drawing.Point(12, 59);
-            this.movementNumberLabel.Name = "movementNumberLabel";
-            this.movementNumberLabel.Size = new System.Drawing.Size(40, 23);
-            this.movementNumberLabel.TabIndex = 21;
-            this.movementNumberLabel.Text = "1.";
+            this.movementNumberLabel0.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.movementNumberLabel0.Location = new System.Drawing.Point(12, 59);
+            this.movementNumberLabel0.Name = "movementNumberLabel0";
+            this.movementNumberLabel0.Size = new System.Drawing.Size(40, 23);
+            this.movementNumberLabel0.TabIndex = 21;
+            this.movementNumberLabel0.Text = "1.";
             // 
             // reason0
             // 
@@ -267,7 +267,7 @@
             this.Controls.Add(this.signOutLabel);
             this.Controls.Add(this.startScreenLabel);
             this.Controls.Add(this.linkLabel3);
-            this.Controls.Add(this.movementNumberLabel);
+            this.Controls.Add(this.movementNumberLabel0);
             this.Controls.Add(this.reason0);
             this.Controls.Add(this.destTextBox0);
             this.Controls.Add(this.meansOfTransport0);
@@ -296,7 +296,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label movementNumberLabel;
+        private System.Windows.Forms.Label movementNumberLabel0;
         private System.Windows.Forms.ComboBox reason0;
         private System.Windows.Forms.TextBox destTextBox0;
         private System.Windows.Forms.ComboBox meansOfTransport0;

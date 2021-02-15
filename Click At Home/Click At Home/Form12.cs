@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,34 +11,40 @@ namespace ClickAtHome
         public int numberOfMovements = 0;
         public int currentMovement = 0;
         private List<Movement> movementList = new List<Movement>();
+        private List<Label> labels = new List<Label>();
         private List<TextBox> desttxtboxes = new List<TextBox>();
         private List<MaskedTextBox> timemaskedtxtboxes = new List<MaskedTextBox>();
         private List<ComboBox> reasoncomboboxes = new List<ComboBox>();
         private List<ComboBox> meanscomboboxes = new List<ComboBox>();
 
-        private class Movement
+        public class Movement
         {
             private String destination;
             private String time;
             private String means;
             private String reason;
+            private bool coffeeOrder;
             Image map;
-
-            public Movement(String dst, String tm, String mns, String rsn, Image mp)
+            public Movement(String dst, String tm, String mns, String rsn, Image mp, bool cof)
             {
                 destination = dst;
                 time = tm;
                 means = mns;
                 reason = rsn;
                 map = mp;
+                coffeeOrder = cof;
             }
 
             public Image getMap(){return map;}
+            public bool hasOrder() { return coffeeOrder; }
+            public void setOrder() { coffeeOrder = true; }
+
         }
 
         public Form12()
         {
             InitializeComponent();
+            labels.Add(movementNumberLabel0);
             desttxtboxes.Add(destTextBox0);
             timemaskedtxtboxes.Add(timeMaskedTextBox0);
             meanscomboboxes.Add(meansOfTransport0);
@@ -48,6 +55,19 @@ namespace ClickAtHome
             destTextBox0.ForeColor = Color.Gray;
             timeMaskedTextBox0.ForeColor = Color.Gray;
             updateMapPagesLabel();
+        }
+
+        public void setOrderIcon(int movnum)
+        {
+            PictureBox pc = new PictureBox();
+            Controls.Add(pc);
+            foreach (Label label in labels)
+                if (label.Text.Equals(movnum + "."))
+                    pc.Location = new Point(addMovementButton.Location.X, label.Location.Y);
+            pc.BackgroundImage = Properties.Resources.coffeeOrdered;
+            pc.BackgroundImageLayout = ImageLayout.Stretch;
+            pc.Size = addMovementButton.Size;
+            pc.Show();
         }
 
         private void addMovement(object sender, EventArgs e)
@@ -73,7 +93,7 @@ namespace ClickAtHome
 
         private void duplicateFields(int Y)
         {
-            duplicateLabel(movementNumberLabel, Y);
+            duplicateLabel(movementNumberLabel0, Y);
             duplicateDestTextBox(destTextBox0, Y);
             duplicateTimeMaskedTextBox(timeMaskedTextBox0, Y);
             duplicateMeansOfTransport(meansOfTransport0, Y);
@@ -87,12 +107,12 @@ namespace ClickAtHome
         {
             Label label = new Label();
             Controls.Add(label);
+            labels.Add(label);
             label.Location = new Point(bluePrintLabel.Location.X, Y + 30);
             label.Size = bluePrintLabel.Size;
             label.Font = new Font(bluePrintLabel.Font.Name, bluePrintLabel.Font.Size, FontStyle.Bold);
             label.Text = (numberOfMovements + 1).ToString() + ".";
             label.Show();
-            label.Name = "label" + movementNumberLabel.ToString();
         }
 
         private void duplicateDestTextBox(TextBox bluePrintDestTextBox, int Y)
@@ -108,8 +128,6 @@ namespace ClickAtHome
             textbox.Enter += new EventHandler(TextBox_Enter);
             textbox.Leave += new EventHandler(TextBox_Leave);
             textbox.Show();
-            textbox.Name = "destTextBox" + movementNumberLabel.ToString();
-            textbox.Name = "destTextBox" + movementNumberLabel.ToString();
         }
         private void duplicateTimeMaskedTextBox(MaskedTextBox bluePrintMaskedTimeTextBox, int Y)
         {
@@ -127,7 +145,6 @@ namespace ClickAtHome
             textbox.TextChanged += new EventHandler(timeMaskedTextBox_TextChanged);
             textbox.Validated += new EventHandler(timeMaskedTextBox_Validated);
             textbox.Show();
-            textbox.Name = "timeMaskedTextBox" + movementNumberLabel.ToString();
         }
 
         private void duplicateMeansOfTransport(ComboBox bluePrintMeansOfTransport, int Y){  duplicateComboBox(bluePrintMeansOfTransport, Y, "ΜΕΣΟ ΜΕΤΑΚΙΝΗΣΗΣ");    }
@@ -233,19 +250,19 @@ namespace ClickAtHome
         private void createMovement(String dest, String time, String means, String reason)//Creates an instance of a Movement and adds it in the movementList
         {
             if (reason.Equals("ΕΡΓΑΣΙΑ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxWork));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxWork, false));
             else if (reason.Equals("ΙΑΤΡΟΣ/ΦΑΡΜΑΚΕΙΟ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxPh));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxPh, false));
             else if (reason.Equals("ΑΓΑΘΑ ΠΡΩΤΗΣ ΑΝΑΓΚΗΣ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxSM));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxSM, false));
             else if (reason.Equals("ΤΡΑΠΕΖΑ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxBank));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxBank, false));
             else if (reason.Equals("ΠΑΡΟΧΗ ΒΟΗΘΕΙΑΣ/ΣΥΝΟΔΕΙΑ ΜΑΘΗΤΗ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxRandom));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxRandom, false));
             else if (reason.Equals("ΤΕΛΕΤΗ/ΕΠΙΚΟΙΝΩΝΙΑ ΔΙΑΖΕΥΓΜΕΝΩΝ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxRandom));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxRandom, false));
             else if (reason.Equals("ΣΩΜΑΤΙΚΗ ΑΣΚΗΣΗ/ΚΑΤΟΙΚΙΔΙΟ"))
-                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxExercise));
+                movementList.Add(new Movement(dest, time, means, reason, (Image)Properties.Resources.mapBoxExercise, false));
         }
 
         private void updateMap(){   mapBox.BackgroundImage = movementList[currentMovement - 1].getMap();    }
@@ -277,7 +294,7 @@ namespace ClickAtHome
             }
         }
 
-        private void coffeeButton_Click(object sender, EventArgs e) {   if (currentMovement >= 1)  new Form13(timemaskedtxtboxes[currentMovement - 1].Text).ShowDialog();  }
+        private void coffeeButton_Click(object sender, EventArgs e) {   if (currentMovement >= 1)  new Form13(this, movementList[currentMovement-1], timemaskedtxtboxes[currentMovement - 1].Text).ShowDialog();  }
 
         private void button_MouseHover(object sender, EventArgs e){ Cursor = Cursors.Hand;  }
 
@@ -299,7 +316,10 @@ namespace ClickAtHome
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=41\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
         }
     }
 }

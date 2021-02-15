@@ -175,6 +175,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\Εγχειρίδιο Χρήστη.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -508,6 +509,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeOrdered.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

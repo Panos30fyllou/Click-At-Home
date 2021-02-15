@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -194,6 +195,14 @@ namespace ClickAtHome
             else
                 MessageBox.Show("Το καλάθι σας είναι άδειο. Παρακαλώ επιλέξτε προϊόν.", "Άδειο καλάθι");
         }
-    //τέλος
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=17\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
+        }
+        //τέλος
     }
 }

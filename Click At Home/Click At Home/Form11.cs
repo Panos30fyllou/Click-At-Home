@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -21,10 +22,11 @@ namespace ClickAtHome
         static Device tv = new Device("tv", false, Properties.Resources.tvOff, "Η τηλεόραση άναψε", "Η τηλεόραση έσβησε");
         static Device bathroom1 = new Device("bathroom1", false, Properties.Resources.bathroom1Off, "Το φως στο μικρό μπάνιο άναψε", "Το φως στο μικρό μπάνιο έσβησε");
         static Device bathroom2 = new Device("bathroom2", false, Properties.Resources.bathroom2Off, "Το φως στο μεγάλο μπάνιο άναψε", "Το φως στο μεγάλο μπάνιο έσβησε");
-        static Device cofeemaker = new Device("coffeeMaker", false, Properties.Resources.coffeeMakerOff, "Η καφετιέρα ενεργοποιήθηκε", "Η καφετιέρα γέμισε");
+        static Device coffeemaker = new Device("coffeeMaker", false, Properties.Resources.coffeeMakerOff, "Η καφετιέρα ενεργοποιήθηκε", "Η καφετιέρα γέμισε");
         static Device aircondition = new Device("airCondition", false, Properties.Resources.airConditionOff, "Το κλιματιστικό ενεργοποιήθηκε στους ", "Το κλιματιστικό απενεργοποιήθηκε");
-
-        List<Device> deviceList = new List<Device> { bedlamp1, bedlamp2, kidsbedlamp, tv, bathroom1, bathroom2, cofeemaker, aircondition };     //In this list, every device of the house is stored.
+        static string airconditionMode = "ΖΕΣΤΟ";
+        static int airconditionTemp = 20;
+        List<Device> deviceList = new List<Device> { bedlamp1, bedlamp2, kidsbedlamp, tv, bathroom1, bathroom2, coffeemaker, aircondition };     //In this list, every device of the house is stored.
         
         ///////////////////////////
         ///     DEVICE CLASS    ///
@@ -58,7 +60,22 @@ namespace ClickAtHome
         public Form11()
         {
             InitializeComponent();
-            airConditionComboController.SelectedIndex = 0;      //Sets the default selection of the aircondition's mode to 'Heat'
+            airConditionButton.BackgroundImage = aircondition.getImage();
+            tvButton.BackgroundImage = tv.getImage();
+            coffeeMakerButton.BackgroundImage = coffeemaker.getImage();
+            bathroom1Button.BackgroundImage = bathroom1.getImage();
+            bathroom2Button.BackgroundImage = bathroom2.getImage();
+            bedLamp1Button.BackgroundImage = bedlamp1.getImage();
+            bedLamp2Button.BackgroundImage = bedlamp2.getImage();
+            kidsBedLampButton.BackgroundImage = kidsbedlamp.getImage();
+            if (aircondition.isOn()) {
+                airConditionComboController.Enabled = true;
+                airConditionUpDownController.Enabled = true;
+                airCondionLabel.Visible = true;
+                airCondionLabel.ForeColor = airconditionMode.Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue; //If the aircondition's mode is 'Heat', set the label's forecolor to OrangeRed. Else change it to Blue.
+            }
+            airConditionUpDownController.Value = airconditionTemp;
+            airConditionComboController.SelectedIndex = airconditionMode.Equals("ΖΕΣΤΟ") ? 0 : 1;
         }
 
         private void deviceClick(object sender, EventArgs e)    //When a device is clicked:
@@ -73,7 +90,7 @@ namespace ClickAtHome
                         richTextBox1.Text += (device.isOn() ? (device.name.Equals("airCondition") ? device.grPhraseOn + airCondionLabel.Text + " στην λειτουργία " + airConditionComboController.Text : device.grPhraseOn) : device.grPhraseOff) + Environment.NewLine; //If the device is on then add the grPhraseOn. Else add the grPhraseOff. But if it is on and the device is the aircondition then there are also information about it added, like the mode and the temperature.
                     }
                     else {                                      //If it is the coffee maker
-                        if (cofeemaker.isOn()) {    cofeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" + Environment.NewLine; }         //If the coffee maker is on, turn it off and inform the user it is empty
+                        if (coffeemaker.isOn()) {    coffeemaker.turnOff();   richTextBox1.Text += "Η καφετιέρα άδειασε" + Environment.NewLine; }         //If the coffee maker is on, turn it off and inform the user it is empty
                         else {                      coffeeTimer.Start();    richTextBox1.Text += "Η καφετιέρα ενεργοποιήθηκε" + Environment.NewLine; }  //If the coffee maker is off, start a timer of 5s and then turn it on and inform the user it is filled.
                     }
                     button.BackgroundImage = device.getImage(); //Update the background image with the new one
@@ -81,7 +98,7 @@ namespace ClickAtHome
                         airCondionLabel.Visible =               device.isOn() ? true : false;   //If the aircondition is on, make the label visible. Else not visible.
                         airConditionUpDownController.Enabled =  device.isOn() ? true : false;   //If the aircondition is on, make the controllers enabled. Else disable them.
                         airConditionComboController.Enabled =   device.isOn() ? true : false;
-                        airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Cyan; //If the aircondition's mode is 'Heat', set the label's forecolor to OrangeRed. Else change it to Cyan.
+                        airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue; //If the aircondition's mode is 'Heat', set the label's forecolor to OrangeRed. Else change it to Blue.
                     }
                 }
             }
@@ -113,26 +130,28 @@ namespace ClickAtHome
 
         private void airConditionController_ValueChanged(object sender, EventArgs e)                                                                    //When the value of the temperature controller changes:
         {
-            airCondionLabel.Text = airConditionUpDownController.Value.ToString() + "°C";                                                                //Update the label of the aircondtion button with the new value.
+            airconditionTemp = (int)airConditionUpDownController.Value;
+            airCondionLabel.Text = airconditionTemp.ToString() + "°C";                                                                //Update the label of the aircondtion button with the new value.
             richTextBox1.Text += "Το κλιματιστικό ρυθμίστηκε στους " + airConditionUpDownController.Value.ToString() + "°C" + Environment.NewLine;      //Informs the user by adding a message to the richTextBox
         }
         private void airConditionComboController_SelectionChangeCommitted(object sender, EventArgs e)                                                   //When the mode of the aircondition changes
         {
-            airCondionLabel.ForeColor = airConditionComboController.SelectedItem.ToString().Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;             //Update the forecolor of the aircondition button's label. If the mode is 'Heat' set 
+            airconditionMode = airConditionComboController.SelectedItem.ToString();
+            airCondionLabel.ForeColor = airconditionMode.Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;             //Update the forecolor of the aircondition button's label. If the mode is 'Heat' set 
             richTextBox1.Text += "Το κλιματιστικό μπήκε στην λειτουργία " + airConditionComboController.SelectedItem.ToString() + Environment.NewLine;  //Informs the user by adding a message to the richTextBox
         }
 
         private void coffeeTimer_Tick(object sender, EventArgs e)                                           //This timer ticks every 5s.                   
         {
             coffeeTimer.Stop();                                                                             //When the timer ticks, the timer stops
-            cofeemaker.turnOn();                                                                            //The coffee maker is turned On.
-            coffeeMakerButton.BackgroundImage = cofeemaker.getImage();                                      //The coffee maker button's background is updated.
+            coffeemaker.turnOn();                                                                            //The coffee maker is turned On.
+            coffeeMakerButton.BackgroundImage = coffeemaker.getImage();                                      //The coffee maker button's background is updated.
             richTextBox1.Text += "Η καφετιέρα γέμισε και απενεργοποιήθηκε αυτόματα" + Environment.NewLine;  //Informs the user by adding a message to the richTextBox.
         }
 
-        private void airCondionLabel_Click(object sender, EventArgs e){ airConditionButton.PerformClick();} //If the user clicks on the aircondition's label, since it is not clickable, he obviously wants to click on the airconditionButton, so a click of that button is performed.
+        private void airConditionLabel_Click(object sender, EventArgs e){ airConditionButton.PerformClick();} //If the user clicks on the aircondition's label, since it is not clickable, he obviously wants to click on the airconditionButton, so a click of that button is performed.
 
-        private void airCondionLabel_MouseHover(object sender, EventArgs e)     //If the user hovers over the aircondition's label, he also hovers over the airconditionButton so:
+        private void airConditionLabel_MouseHover(object sender, EventArgs e)     //If the user hovers over the aircondition's label, he also hovers over the airconditionButton so:
         {
             Cursor = Cursors.Hand;                                              //The Cursor is set to Hand.
             aircondition.hover();                                               //The hover function for the aircondition is called.
@@ -150,6 +169,14 @@ namespace ClickAtHome
             Hide();
             new Form1().ShowDialog();
             Close();
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=25\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
         }
     }
 }

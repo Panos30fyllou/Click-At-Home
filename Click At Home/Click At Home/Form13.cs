@@ -6,18 +6,28 @@ namespace ClickAtHome
 {
     public partial class Form13 : Form
     {
-        public Form13(String time)
+        public Form12.Movement movement;
+        public Form12 prevform;
+
+        public Form13(Form12 f, Form12.Movement m, String time)
         {
             InitializeComponent();
             timeMaskedTextBox.Text = time;
             sendButton.BackColor = SystemColors.Window;
             cancelButton.BackColor = SystemColors.Window;
-        }
+            movement = m;
+            prevform = f;
+    }
 
-        //Send Order
-        private void sendButton_Click(object sender, EventArgs e)
+    //Send Order
+    private void sendButton_Click(object sender, EventArgs e)
         {
-            if (orderIsOk()){   MessageBox.Show("Η παραγγελία σας ολοκληρώθηκε με επιτυχία!"); Close();     }
+            if (orderIsOk()){
+                movement.setOrder(); 
+                prevform.setOrderIcon(prevform.currentMovement); 
+                MessageBox.Show("Η παραγγελία σας ολοκληρώθηκε με επιτυχία!"); 
+                Close();     
+            }
         }
 
         //Cancel Order
@@ -64,6 +74,10 @@ namespace ClickAtHome
             }
             errorProvider.Clear();
             return false;
+        }
+
+        private void Form13_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

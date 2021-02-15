@@ -47,10 +47,11 @@ namespace ClickAtHome
             // 
             // timeMaskedTextBox
             // 
-            this.timeMaskedTextBox.Location = new System.Drawing.Point(332, 294);
+            this.timeMaskedTextBox.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.timeMaskedTextBox.Location = new System.Drawing.Point(332, 290);
             this.timeMaskedTextBox.Mask = "00:00";
             this.timeMaskedTextBox.Name = "timeMaskedTextBox";
-            this.timeMaskedTextBox.Size = new System.Drawing.Size(64, 20);
+            this.timeMaskedTextBox.Size = new System.Drawing.Size(64, 24);
             this.timeMaskedTextBox.TabIndex = 19;
             this.timeMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timeMaskedTextBox.ValidatingType = typeof(System.DateTime);
@@ -60,7 +61,7 @@ namespace ClickAtHome
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(328, 271);
+            this.label3.Location = new System.Drawing.Point(328, 268);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 19);
             this.label3.TabIndex = 18;
@@ -88,9 +89,10 @@ namespace ClickAtHome
             // 
             // orderRichTextBox
             // 
+            this.orderRichTextBox.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.orderRichTextBox.Location = new System.Drawing.Point(332, 82);
             this.orderRichTextBox.Name = "orderRichTextBox";
-            this.orderRichTextBox.Size = new System.Drawing.Size(196, 186);
+            this.orderRichTextBox.Size = new System.Drawing.Size(196, 183);
             this.orderRichTextBox.TabIndex = 15;
             this.orderRichTextBox.Text = "";
             // 
@@ -157,6 +159,7 @@ namespace ClickAtHome
             this.Name = "Form13";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Order";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form13_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mapBox)).EndInit();
             this.ResumeLayout(false);
