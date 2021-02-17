@@ -38,6 +38,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.airConditionUpDownController = new System.Windows.Forms.NumericUpDown();
             this.airCondionLabel = new System.Windows.Forms.Label();
+            this.signOutLabel = new System.Windows.Forms.LinkLabel();
+            this.startScreenLabel = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.coffeeMakerButton = new System.Windows.Forms.Button();
             this.bathroom2Button = new System.Windows.Forms.Button();
             this.bathroom1Button = new System.Windows.Forms.Button();
@@ -60,7 +63,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(1375, 45);
+            this.label3.Location = new System.Drawing.Point(1375, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(108, 17);
             this.label3.TabIndex = 31;
@@ -70,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(1286, 45);
+            this.label2.Location = new System.Drawing.Point(1286, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 30;
@@ -80,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.label1.Location = new System.Drawing.Point(1286, 9);
+            this.label1.Location = new System.Drawing.Point(1286, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(197, 32);
             this.label1.TabIndex = 29;
@@ -94,7 +97,7 @@
             this.airConditionComboController.Items.AddRange(new object[] {
             "ΖΕΣΤΟ",
             "ΚΡΥΟ"});
-            this.airConditionComboController.Location = new System.Drawing.Point(1287, 64);
+            this.airConditionComboController.Location = new System.Drawing.Point(1287, 92);
             this.airConditionComboController.Name = "airConditionComboController";
             this.airConditionComboController.Size = new System.Drawing.Size(82, 24);
             this.airConditionComboController.TabIndex = 28;
@@ -103,9 +106,9 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.richTextBox1.Location = new System.Drawing.Point(1286, 107);
+            this.richTextBox1.Location = new System.Drawing.Point(1286, 125);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(486, 613);
+            this.richTextBox1.Size = new System.Drawing.Size(486, 595);
             this.richTextBox1.TabIndex = 27;
             this.richTextBox1.Text = "";
             // 
@@ -113,7 +116,7 @@
             // 
             this.airConditionUpDownController.Enabled = false;
             this.airConditionUpDownController.Font = new System.Drawing.Font("Century Gothic", 8F);
-            this.airConditionUpDownController.Location = new System.Drawing.Point(1378, 65);
+            this.airConditionUpDownController.Location = new System.Drawing.Point(1378, 93);
             this.airConditionUpDownController.Maximum = new decimal(new int[] {
             35,
             0,
@@ -137,6 +140,7 @@
             // airCondionLabel
             // 
             this.airCondionLabel.AutoSize = true;
+            this.airCondionLabel.BackColor = System.Drawing.SystemColors.Control;
             this.airCondionLabel.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
             this.airCondionLabel.Location = new System.Drawing.Point(570, 69);
             this.airCondionLabel.Name = "airCondionLabel";
@@ -144,8 +148,56 @@
             this.airCondionLabel.TabIndex = 25;
             this.airCondionLabel.Text = "20°C";
             this.airCondionLabel.Visible = false;
-            this.airCondionLabel.Click += new System.EventHandler(this.airCondionLabel_Click);
-            this.airCondionLabel.MouseHover += new System.EventHandler(this.airCondionLabel_MouseHover);
+            this.airCondionLabel.Click += new System.EventHandler(this.airConditionLabel_Click);
+            this.airCondionLabel.MouseHover += new System.EventHandler(this.airConditionLabel_MouseHover);
+            // 
+            // signOutLabel
+            // 
+            this.signOutLabel.AutoSize = true;
+            this.signOutLabel.BackColor = System.Drawing.Color.Transparent;
+            this.signOutLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.signOutLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.signOutLabel.Location = new System.Drawing.Point(1616, 9);
+            this.signOutLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.signOutLabel.Name = "signOutLabel";
+            this.signOutLabel.Size = new System.Drawing.Size(91, 16);
+            this.signOutLabel.TabIndex = 81;
+            this.signOutLabel.TabStop = true;
+            this.signOutLabel.Text = "Αποσύνδεση";
+            this.signOutLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.signOutLabel_LinkClicked);
+            // 
+            // startScreenLabel
+            // 
+            this.startScreenLabel.AutoSize = true;
+            this.startScreenLabel.BackColor = System.Drawing.Color.Transparent;
+            this.startScreenLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startScreenLabel.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.startScreenLabel.Location = new System.Drawing.Point(1510, 9);
+            this.startScreenLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.startScreenLabel.Name = "startScreenLabel";
+            this.startScreenLabel.Size = new System.Drawing.Size(96, 16);
+            this.startScreenLabel.TabIndex = 80;
+            this.startScreenLabel.TabStop = true;
+            this.startScreenLabel.Text = "Αρχική σελίδα";
+            this.startScreenLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.startScreenLabel_LinkClicked);
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.linkLabel3.Font = new System.Drawing.Font("Arial", 10.2F);
+            this.linkLabel3.Location = new System.Drawing.Point(1715, 9);
+            this.linkLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(59, 16);
+            this.linkLabel3.TabIndex = 79;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Βοήθεια";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // coffeeMakerButton
             // 
@@ -283,7 +335,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1784, 726);
+            this.BackColor = System.Drawing.Color.LightCyan;
+            this.ClientSize = new System.Drawing.Size(1784, 721);
+            this.Controls.Add(this.signOutLabel);
+            this.Controls.Add(this.startScreenLabel);
+            this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -302,6 +358,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form11";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Smart Home";
             ((System.ComponentModel.ISupportInitialize)(this.airConditionUpDownController)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -329,5 +386,8 @@
         private System.Windows.Forms.Button bedLamp2Button;
         private System.Windows.Forms.Button bedLamp1Button;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel signOutLabel;
+        private System.Windows.Forms.LinkLabel startScreenLabel;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClickAtHome
@@ -27,12 +23,9 @@ namespace ClickAtHome
         private void Form5_Load(object sender, EventArgs e)
         {
             int counter = 0;
-            for (int i = 0; i <= 14; i++)
-            {
+            for (int i = 0; i <= 14; i++){
                 if (food_cnt[i] > 0)
-                {
                     counter++;
-                }
             }
             total = New_Line();
             textBoxTotal.Location = new Point(textBox2.Location.X, numericUpDown1.Location.Y + counter * 34);
@@ -49,10 +42,8 @@ namespace ClickAtHome
         {
             int counter = 0;
             double total = 0;
-            for (int i = 0; i <= 14; i++)
-            {
-                if (food_cnt[i] > 0 && counter > 0)
-                {
+            for (int i = 0; i <= 14; i++) {
+                if (food_cnt[i] > 0 && counter > 0) {
                     //new line
                     new_TextBox(textBox1, counter * 34, lb_food[i]);
                     new_numericUpDown(numericUpDown1, counter * 34, food_cnt[i]);
@@ -60,9 +51,8 @@ namespace ClickAtHome
                     total = total + food_cnt[i] * price[i];
                     counter++;
                 }
-                //Μέσα στην else if θα μπει μόνο στη πρώτη επανάληψη ώστε να γεμίσει τη πρώτη σειρά που υπαρχει ήδη στη φόρμα
-                else if (food_cnt[i] > 0 && counter == 0)
-                {
+                //Μέσα στην else if θα μπει μόνο στην πρώτη επανάληψη ώστε να γεμίσει την πρώτη σειρά που υπάρχει ήδη στη φόρμα
+                else if (food_cnt[i] > 0 && counter == 0) {
                     textBox1.Text = lb_food[i];
                     numericUpDown1.Value = food_cnt[i];
                     textBox2.Text = (food_cnt[i] * price[i]).ToString();
@@ -91,6 +81,7 @@ namespace ClickAtHome
         //Η πρώτη λίστα περιέχει όλα τα textbox που έχουν δημιουργηθεί και η δεύτερη όλα τα ονόματα των textbox
         List<TextBox> textbox_list = new List<TextBox>(); // πρώτη λίστα
         List<String> textbox = new List<String>();   //δεύτερη λίστα
+
         public void new_TextBox(TextBox txt, int W, string text)
         {
             TextBox box = new TextBox();
@@ -113,24 +104,20 @@ namespace ClickAtHome
             //ο αριθμός του numericUpDown που πατήθηκε
             string name = (num.Name).Substring((num.Name).Length - 1);
             int number = Int32.Parse(name);
-            //οι παρακάτω μεταβλητές θα κρατάνε σε κάθε επανάληξη τον αριθμό κάθε textbox που δημιουργήθηκε
+            //οι παρακάτω μεταβλητές θα κρατάνε σε κάθε επανάληψη τον αριθμό κάθε textbox που δημιουργήθηκε
             string nametxt;
             int numtxt;
-            //η παρακάτω μεταβλητή είναι το περιεχόμενο του textbox που προηγήτε του numericUpDown που πατήθηκε
+            //η παρακάτω μεταβλητή είναι το περιεχόμενο του textbox που προηγείται του numericUpDown που πατήθηκε
             string text;
-            for (int i = 0; i < textbox_list.Count; i++)
-            {
+            for (int i = 0; i < textbox_list.Count; i++){
                 nametxt = (textbox[i]).Substring((textbox[i]).Length - 1);
                 numtxt = Int32.Parse(nametxt);
-                if ((number * 2 - 1) == numtxt)
-                {
+                if ((number * 2 - 1) == numtxt){
                     text = textbox_list[i].Text;
                     int j = 0;
                     bool check = false;
-                    do
-                    {
-                        if (text == lb_food[j])
-                        {
+                    do{
+                        if (text == lb_food[j]){
                             total = total - price[j] * food_cnt[j] + price[j] * (Decimal.ToInt32(num.Value));
                             food_cnt[j] = Decimal.ToInt32(num.Value);
                             textbox_list[i + 1].Text = (price[j] * (Decimal.ToInt32(num.Value))).ToString();
@@ -142,47 +129,49 @@ namespace ClickAtHome
                 }
 
             }
-            //τελος
+            //τέλος
         }
 
-
-        string txt_path = "C:\\Users\\eyaki\\Desktop\\test\\user.txt";
-        string add = "C:\\Users\\eyaki\\Desktop\\test\\address.txt";
+        string txt_path = Application.StartupPath + @"\user.txt";
+        string add = Application.StartupPath + @"\address.txt";
         //Αρχική σελίδα
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             File.WriteAllText(add, string.Empty);
+            Hide();
             Form2 f2 = new Form2();
-            this.Hide();
             f2.ShowDialog();
+            Close();
         }
 
         //Αποσύνδεση
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
             File.WriteAllText(txt_path, string.Empty);
             File.WriteAllText(add, string.Empty);
-            this.Hide();
+            Hide();
+            Form1 f1 = new Form1();
             f1.ShowDialog();
+            Close();
         }
 
         //Βοήθεια
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=19\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
         }
 
-        //Σε περίπτωση που πατηθεί το numericUpDown της πρώτης σειράς , η οποία δεν εμφανίζεται δυναμκά στη φόρμα
+        //Σε περίπτωση που πατηθεί το numericUpDown της πρώτης σειράς, η οποία δεν εμφανίζεται δυναμικά στη φόρμα
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             string text = textBox1.Text;
             int j = 0;
             bool check = false;
-            do
-            {
-                if (text == lb_food[j])
-                {
+            do{
+                if (text == lb_food[j]){
                     total = total - price[j] * food_cnt[j] + price[j] * (Decimal.ToInt32(numericUpDown1.Value));
                     food_cnt[j] = Decimal.ToInt32(numericUpDown1.Value);
                     textBox2.Text = (price[j] * (Decimal.ToInt32(numericUpDown1.Value))).ToString();
@@ -196,21 +185,21 @@ namespace ClickAtHome
         //Επιστροφή στη προηγούμενη σελίδα
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            Hide();
             Form4 f4 = new Form4();
-            this.Hide();
             f4.ShowDialog();
+            Close();
         }
 
         //Άνοιγμα επόμενης σελίδας
         private void button1_Click(object sender, EventArgs e)
         {
             Form6 f6 = new Form6();
-            f6.food_cnt = this.food_cnt;
-            this.Hide();
+            f6.food_cnt = food_cnt;
+            Hide();
             f6.ShowDialog();
+            Close();
         }
-
         //τέλος
-
     }
 }

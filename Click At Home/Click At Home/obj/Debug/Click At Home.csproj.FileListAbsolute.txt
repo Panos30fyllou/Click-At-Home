@@ -18,3 +18,5 @@ C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Hom
 C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\Click At Home.pdb
 C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form10.resources
 C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form11.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form12.resources
+C:\Users\Panos30fyllou\Documents\GitHub\Click-At-Home\Click At Home\Click At Home\obj\Debug\ClickAtHome.Form13.resources

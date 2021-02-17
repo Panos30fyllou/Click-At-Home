@@ -70,6 +70,12 @@
     <Compile Include="Form12.Designer.cs">
       <DependentUpon>Form12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form13.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form13.Designer.cs">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     <EmbeddedResource Include="Form11.resx">
       <DependentUpon>Form11.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form12.resx">
+      <DependentUpon>Form12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +175,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\Εγχειρίδιο Χρήστη.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -433,6 +446,72 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tvOnHover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addMovementButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxBank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxCoffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxExercise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxPh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxRandom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxSM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxWork.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nextMapButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\previousMapButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mapBoxEmptyRect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dol.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fish.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\greek.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pasta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pizza.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soup.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\souvlaki.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tacos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tea.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffeeOrdered.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClickAtHome
@@ -36,7 +32,7 @@ namespace ClickAtHome
 
         public void Image_change()
         {
-            string[] im = { "bub.jpg", "burger.jpg", "cap.jpg", "choc.jpg", "churos.jpg", "cof.jpg", "dol.jpg", "fish.jpg", "greek.jpg", "pasta.jpg", "pizza.jpg", "soup.jpg", "souvlaki.jpg", "tacos.jpg", "tea.jpg" };
+            string[] im = { "bub", "burger", "cap", "choc", "churos", "cof", "dol", "fish", "greek", "pasta", "pizza", "soup", "souvlaki", "tacos", "tea" };
 
             int[] r = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
             List<int> rand = new List<int>(r);
@@ -44,21 +40,19 @@ namespace ClickAtHome
             Random rn = new Random();
             int rInt;
 
-            for (int i = 0; i <= 6; i++)
-            {
-                do
-                {
+            for (int i = 0; i <= 6; i++) {
+                do {
                     rInt = rn.Next(0, 14);
                 } while (rand.Contains(rInt) == false);
                 rand.Remove(rInt);
             }
 
-            pictureBox1.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[0]]);
-            pictureBox2.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[1]]);
-            pictureBox3.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[2]]);
-            pictureBox4.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[3]]);
-            pictureBox5.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[4]]);
-            pictureBox6.BackgroundImage = Image.FromFile("C:\\Users\\eyaki\\Desktop\\test\\food\\" + im[rand[5]]);
+            pictureBox1.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[0]]);
+            pictureBox2.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[1]]);
+            pictureBox3.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[2]]);
+            pictureBox4.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[3]]);
+            pictureBox5.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[4]]);
+            pictureBox6.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(im[rand[5]]);
 
             //Εμφανίζει την ονομασία του κάθε προϊόντος
             label1.Text = lb_food[rand[0]];
@@ -94,16 +88,10 @@ namespace ClickAtHome
         public void Food_Count(Label lab, NumericUpDown num)
         {
             for (int i = 0; i <= 14; i++)
-            {
                 if (lab.Text == lb_food[i])
-                {
                     food_cnt[i] = (int)num.Value;
-                }
-            }
             //
         }
-
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             Image_change();
@@ -155,62 +143,66 @@ namespace ClickAtHome
             Food_Count(label6, numericUpDown6);
         }
 
-        string txt_path = "C:\\Users\\eyaki\\Desktop\\test\\user.txt";
-        string add = "C:\\Users\\eyaki\\Desktop\\test\\address.txt";
+        string txt_path = Application.StartupPath + @"\user.txt";
+        string add = Application.StartupPath + @"\address.txt";
         //Αρχική σελίδα 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             File.WriteAllText(add, string.Empty);
-            Form2 f2 = new Form2();
-            this.Hide();
-            f2.ShowDialog();
+            Hide();
+            Form f2 = new Form2();
+            f2.Show();
+            Close();
         }
 
         // προηγούμενη σελίδα
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             File.WriteAllText(add, string.Empty);
-            Form3 f3 = new Form3();
-            this.Hide();
+            Hide();
+            Form f3 = new Form3();
             f3.ShowDialog();
+            Close();
         }
 
         //Αποσύνδεση
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
             File.WriteAllText(txt_path, string.Empty);
             File.WriteAllText(add, string.Empty);
-            this.Hide();
-            f1.ShowDialog();
+            Hide();
+            Form f1 = new Form1();
+            f1.Show();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             bool check = false;
             int i = 0;
-            do
-            {
+            do {
                 if (food_cnt[i] > 0)
-                {
                     check = true;
-                }
                 i++;
             } while (i <= 14 && check == false);
-            if (check == true)
-            {
+            if (check == true) {
                 Form5 f5 = new Form5();
-                f5.food_cnt = this.food_cnt;
-                this.Hide();
+                f5.food_cnt = food_cnt;
+                Hide();
                 f5.ShowDialog();
+                Close();
             }
             else
-            {
                 MessageBox.Show("Το καλάθι σας είναι άδειο. Παρακαλώ επιλέξτε προϊόν.", "Άδειο καλάθι");
-            }
-
         }
 
-    //τέλος
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=17\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
+        }
+        //τέλος
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ClickAtHome
@@ -17,26 +11,29 @@ namespace ClickAtHome
             InitializeComponent();
         }
 
-        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void signOutLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            timer1.Stop();
+            Hide();
             Form1 f1 = new Form1();
-            this.Hide();
             f1.ShowDialog();
+            Close();
         }
 
         private void Form8_Load(object sender, EventArgs e)
         {
-            
-            timer1.Enabled = true;
+            timer1.Start();
             richTextBox1.Text = string.Empty;
         }
 
         //Προηγούμενη σελίδα
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
+            Hide();
             Form2 f2 = new Form2();
-            this.Hide();
             f2.ShowDialog();
+            Close();
         }
 
         private void radioButton1_Click(object sender, EventArgs e)
@@ -51,20 +48,18 @@ namespace ClickAtHome
                 errorProvider1.SetError(textBox1, "Το πεδίο ενδέχεται να είναι κενό");
                 errorProvider1.SetError(textBox2, "Το πεδίο ενδέχεται να είναι κενό");
             }
-            else if ((textBox2.Text == "Τηλέφωνο" || (String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))))
+            else if (textBox2.Text == "Τηλέφωνο" || String.IsNullOrEmpty(textBox2.Text) || String.IsNullOrWhiteSpace(textBox2.Text))
             {
                 richTextBox1.Text += "Δεν έχει συμπληρωθεί τηλέφωνο επικοινωνίας για την επαφή με όνομα : " + textBox1.Text + "." + Environment.NewLine;
                 errorProvider1.SetError(textBox2, "Το πεδίο είναι κενό");
             }
-            else if ((textBox1.Text == "Όνομα" || (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))))
+            else if (textBox1.Text == "Όνομα" || String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrWhiteSpace(textBox1.Text))
             {
                 richTextBox1.Text += "Γίνεται κλήση του αριθμού " + textBox2.Text + ". Δεν έχει προστεθεί όνομα" + Environment.NewLine;
                 errorProvider1.SetError(textBox1, "Το πεδίο είναι κενό");
             }
             else
-            {
                 richTextBox1.Text += "Κλήση της επαφής : " + textBox1.Text + " με αριθμό : " + textBox2.Text + "." + Environment.NewLine;
-            }
         }
 
 
@@ -85,15 +80,13 @@ namespace ClickAtHome
                 richTextBox1.Text += "Δεν έχει συμπληρωθεί τηλέφωνο επικοινωνίας για την επαφή επιβλέποντος γιατρού : " + textBox3.Text + "." + Environment.NewLine + Environment.NewLine;
                 errorProvider1.SetError(textBox4, "Το πεδίο είναι κενό");
             }
-            else if ((textBox3.Text == "Όνομα" || (String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))))
+            else if (textBox3.Text == "Όνομα" || String.IsNullOrEmpty(textBox3.Text) || String.IsNullOrWhiteSpace(textBox3.Text))
             {
                 richTextBox1.Text += "Γίνεται κλήση του αριθμού " + textBox4.Text + ". Δεν έχει προστεθεί όνομα" + Environment.NewLine + Environment.NewLine;
                 errorProvider1.SetError(textBox3, "Το πεδίο είναι κενό");
             }
             else
-            {
                 richTextBox1.Text += "Κλήση της επαφής : " + textBox3.Text + " με αριθμό : " + textBox4.Text + "." + Environment.NewLine + Environment.NewLine;
-            }
         }
 
         private void radioButton3_Click(object sender, EventArgs e)
@@ -109,49 +102,40 @@ namespace ClickAtHome
             if (rInt > 160)
             {
                 Form9 f9 = new Form9();
-                timer1.Enabled = false;
+                timer1.Stop();
                 f9.emergency = this.textBox2.Text;
                 f9.doctor = this.textBox4.Text;
-                this.Hide();
+                Hide();
                 f9.ShowDialog();
+                Close();
             }
             else if ( rInt > 128 && rInt <= 150)
-            {
                 richTextBox1.Text += "Οι παλμοί σας είναι πάνω απο το επιθυμητό στόχο αλλά μέσα στα φυσιολογικά όρια." + Environment.NewLine + Environment.NewLine;
-            }
         }
 
         //Σε περίπτωση που τα πεδία έχυν το αρχικό τους περιεχόμενο όταν πατηθούν, αυτό θα σβηστεί
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "Όνομα")
-            {
                 textBox1.Text = "";
-            }
         }
 
         private void textBox2_Click(object sender, EventArgs e)
         {
             if (textBox2.Text == "Τηλέφωνο")
-            {
                 textBox2.Text = "";
-            }
         }
 
         private void textBox3_Click(object sender, EventArgs e)
         {
             if (textBox3.Text == "Όνομα")
-            {
                 textBox3.Text = "";
-            }
         }
 
         private void textBox4_Click(object sender, EventArgs e)
         {
             if (textBox4.Text == "Τηλέφωνο")
-            {
                 textBox4.Text = "";
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -159,6 +143,27 @@ namespace ClickAtHome
             Application.Exit();
         }
 
+        private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            timer1.Stop();
+            Hide();
+            Form2 f2 = new Form2();
+            f2.ShowDialog();
+            Close();
+        }
+
+        private void Form8_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=33\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
+        }
         //τέλος
     }
 }

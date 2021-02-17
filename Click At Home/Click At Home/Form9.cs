@@ -18,13 +18,11 @@ namespace ClickAtHome
         }
         public string emergency { get; set; }
         public string doctor { get; set; }
-        Form8 f8 = new Form8();
 
         private void Form9_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            timer1.Start();
         }
-
         //Ο πρώτος timer ξεκινάει με το που ανοίξει η φόρμα και διαρκεί ένα λεπτό
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -32,15 +30,11 @@ namespace ClickAtHome
             button2.Visible = false;
             richTextBox1.Text += "Γίνεται κλήση ασθενοφόρου στη τοποθεσία σας." + Environment.NewLine;
             if (Int32.TryParse(emergency, out int i))
-            {
                 richTextBox1.Text += "Γίνεται κλήση της επαφής έκτακτης ανάγκης με αριθμό: " + emergency + "." + Environment.NewLine;
-            }
             else
-            {
                 richTextBox1.Text += "Δεν υπάρχει επαφή έκτακτης ανάγκης." + Environment.NewLine;
-            }
             richTextBox1.Text += "";
-            timer2.Enabled = true;
+            timer2.Start();
 
         }
         // Ο δεύτερος timer ξεκινάει όταν τελιώνει ο πρώτος και διαρκεί μισό λεπτό
@@ -50,16 +44,24 @@ namespace ClickAtHome
             richTextBox1.Text += "Το ασθενοφόρο είναι στη διαδρομή προς τη τοποθεσία σας.";
             if (c == 1)
             {
-                this.Hide();
+                timer1.Stop();
+                timer2.Stop();
+                Hide();
+                Form8 f8 = new Form8();
                 f8.ShowDialog();
+                Close();
             }
             c++;
         }
         //Όταν ο χρήστης πατήσει το κουμπί "Οχι" θα επιστρέψει στην αρχική φόρμα
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            timer1.Stop();
+            timer2.Stop();
+            Hide();
+            Form8 f8 = new Form8();
             f8.ShowDialog();
+            Close();
         }
 
         //κουμπί Ναι
@@ -73,25 +75,14 @@ namespace ClickAtHome
 
             richTextBox1.Text += "Μόλις τελειώσετε , πατήστε το κουμπί 'Τέλος' για να επιστρέψετε στην αρχική σελίδα. " + Environment.NewLine;
             if (Int32.TryParse(emergency,out int i) )
-            {
                 checkBox2.Visible = true;
-            }
             else
-            {
                 richTextBox1.Text += "Δεν υπάρχει επαφή έκτακτης ανάγκης." + Environment.NewLine;
-            }
-
             if (Int32.TryParse(doctor, out int j))
-            {
                 checkBox3.Visible = true;
-            }
             else
-            {
                 richTextBox1.Text += "Δεν υπάρχει επαφή επιβλέποντος γιατρού." + Environment.NewLine;
-            }
-
         }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             richTextBox1.Text += "Γίνεται κλήση ασθενοφόρου στη τοποθεσία σας." + Environment.NewLine;
@@ -110,8 +101,12 @@ namespace ClickAtHome
         //κουμπί τέλος
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            timer1.Stop();
+            timer2.Stop();
+            Hide();
+            Form8 f8 = new Form8();
             f8.ShowDialog();
+            Close();
         }
 
     }

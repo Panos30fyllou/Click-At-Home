@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -280,10 +281,10 @@ namespace ClickAtHome
         //Αρχική σελίδα
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            File.WriteAllText(add, string.Empty);
-            Form2 f2 = new Form2();
             Hide();
+            Form2 f2 = new Form2();
             f2.ShowDialog();
+            Close();
         }
 
         //Βοήθεια
@@ -295,14 +296,19 @@ namespace ClickAtHome
         //Αποσύνδεση
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 f1 = new Form1();
-            File.WriteAllText(txt_path, string.Empty);
-            File.WriteAllText(add, string.Empty);
             Hide();
+            Form1 f1 = new Form1();
             f1.ShowDialog();
+            Close();
         }
 
+        private void linkLabel3_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "C:\\Program Files (x86)\\Adobe\\Acrobat Reader DC\\Reader\\AcroRd32.exe";
+            process.StartInfo.Arguments = "/A \"page=15\" \"Εγχειρίδιο Χρήστη.pdf";
+            process.Start();
+        }
         //τέλος
-
     }
 }
