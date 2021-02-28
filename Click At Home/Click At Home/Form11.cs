@@ -128,34 +128,34 @@ namespace ClickAtHome
                 }
         }
 
-        private void airConditionController_ValueChanged(object sender, EventArgs e)                                                                    //When the value of the temperature controller changes:
+        private void airConditionController_ValueChanged(object sender, EventArgs e)                    //When the value of the temperature controller changes:
         {
             airconditionTemp = (int)airConditionUpDownController.Value;
-            airCondionLabel.Text = airconditionTemp.ToString() + "°C";                                                                //Update the label of the aircondtion button with the new value.
+            airCondionLabel.Text = airconditionTemp.ToString() + "°C";                                                                                  //Update the label of the aircondtion button with the new value.
             richTextBox1.Text += "Το κλιματιστικό ρυθμίστηκε στους " + airConditionUpDownController.Value.ToString() + "°C" + Environment.NewLine;      //Informs the user by adding a message to the richTextBox
         }
-        private void airConditionComboController_SelectionChangeCommitted(object sender, EventArgs e)                                                   //When the mode of the aircondition changes
+        private void airConditionComboController_SelectionChangeCommitted(object sender, EventArgs e)   //When the mode of the aircondition changes
         {
             airconditionMode = airConditionComboController.SelectedItem.ToString();
-            airCondionLabel.ForeColor = airconditionMode.Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;             //Update the forecolor of the aircondition button's label. If the mode is 'Heat' set 
+            airCondionLabel.ForeColor = airconditionMode.Equals("ΖΕΣΤΟ") ? Color.OrangeRed : Color.Blue;                                                //Update the forecolor of the aircondition button's label. If the mode is 'Heat' set 
             richTextBox1.Text += "Το κλιματιστικό μπήκε στην λειτουργία " + airConditionComboController.SelectedItem.ToString() + Environment.NewLine;  //Informs the user by adding a message to the richTextBox
         }
 
         private void coffeeTimer_Tick(object sender, EventArgs e)                                           //This timer ticks every 5s.                   
         {
             coffeeTimer.Stop();                                                                             //When the timer ticks, the timer stops
-            coffeemaker.turnOn();                                                                            //The coffee maker is turned On.
-            coffeeMakerButton.BackgroundImage = coffeemaker.getImage();                                      //The coffee maker button's background is updated.
+            coffeemaker.turnOn();                                                                           //The coffee maker is turned On.
+            coffeeMakerButton.BackgroundImage = coffeemaker.getImage();                                     //The coffee maker button's background is updated.
             richTextBox1.Text += "Η καφετιέρα γέμισε και απενεργοποιήθηκε αυτόματα" + Environment.NewLine;  //Informs the user by adding a message to the richTextBox.
         }
 
         private void airConditionLabel_Click(object sender, EventArgs e){ airConditionButton.PerformClick();} //If the user clicks on the aircondition's label, since it is not clickable, he obviously wants to click on the airconditionButton, so a click of that button is performed.
 
-        private void airConditionLabel_MouseHover(object sender, EventArgs e)     //If the user hovers over the aircondition's label, he also hovers over the airconditionButton so:
+        private void airConditionLabel_MouseHover(object sender, EventArgs e)       //If the user hovers over the aircondition's label, he also hovers over the airconditionButton so:
         {
-            Cursor = Cursors.Hand;                                              //The Cursor is set to Hand.
-            aircondition.hover();                                               //The hover function for the aircondition is called.
-            airConditionButton.BackgroundImage = aircondition.getImage();       //The airconditionButton's background image is updated.
+            Cursor = Cursors.Hand;                                                  //The Cursor is set to Hand.
+            aircondition.hover();                                                   //The hover function for the aircondition is called.
+            airConditionButton.BackgroundImage = aircondition.getImage();           //The airconditionButton's background image is updated.
         }
         private void startScreenLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)   //Hides the form, opens a start screen form and closes this one.
         {

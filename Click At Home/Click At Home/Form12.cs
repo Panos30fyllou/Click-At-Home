@@ -10,6 +10,10 @@ namespace ClickAtHome
     {
         public int numberOfMovements = 0;
         public int currentMovement = 0;
+
+        ///////////////////
+        ///     LISTS   ///
+        ///////////////////
         private List<Movement> movementList = new List<Movement>();
         private List<Label> labels = new List<Label>();
         private List<TextBox> desttxtboxes = new List<TextBox>();
@@ -17,6 +21,9 @@ namespace ClickAtHome
         private List<ComboBox> reasoncomboboxes = new List<ComboBox>();
         private List<ComboBox> meanscomboboxes = new List<ComboBox>();
 
+        ////////////////////////////////////
+        ///         MOVEMENT CLASS      ///
+        //////////////////////////////////
         public class Movement
         {
             private String destination;

@@ -73,13 +73,13 @@ namespace ClickAtHome
         private Point newPointerLocation(double bodyTemp)       //Returns the point where the pointer of the analog thermometer will appear to match with the digital one's result, using the functin getPoint.
         {
             if (bodyTemp <= 37)
-                return getPoint(270);
+                return getPoint(170);
             else if (bodyTemp <= 38)
-                return getPoint(370);
+                return getPoint(270);
             else if (bodyTemp <= 39)
-                return getPoint(470);
+                return getPoint(370);
             else
-                return getPoint(570);
+                return getPoint(470);
         }
         private void showTemp()                                                                             //Calculates a temperature and shows the results to the user.
         {

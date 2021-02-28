@@ -124,7 +124,7 @@
             // mapPagesLabel
             // 
             this.mapPagesLabel.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold);
-            this.mapPagesLabel.Location = new System.Drawing.Point(1132, 601);
+            this.mapPagesLabel.Location = new System.Drawing.Point(1123, 598);
             this.mapPagesLabel.Name = "mapPagesLabel";
             this.mapPagesLabel.Size = new System.Drawing.Size(64, 40);
             this.mapPagesLabel.TabIndex = 17;
@@ -200,7 +200,7 @@
             // 
             this.nextMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.nextMapButton;
             this.nextMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.nextMapButton.Location = new System.Drawing.Point(1202, 601);
+            this.nextMapButton.Location = new System.Drawing.Point(1193, 598);
             this.nextMapButton.Name = "nextMapButton";
             this.nextMapButton.Size = new System.Drawing.Size(40, 40);
             this.nextMapButton.TabIndex = 26;
@@ -213,7 +213,7 @@
             // 
             this.previousMapButton.BackgroundImage = global::ClickAtHome.Properties.Resources.previousMapButton;
             this.previousMapButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.previousMapButton.Location = new System.Drawing.Point(1086, 601);
+            this.previousMapButton.Location = new System.Drawing.Point(1077, 598);
             this.previousMapButton.Name = "previousMapButton";
             this.previousMapButton.Size = new System.Drawing.Size(40, 40);
             this.previousMapButton.TabIndex = 25;
@@ -226,7 +226,7 @@
             // 
             this.coffeeButton.BackgroundImage = global::ClickAtHome.Properties.Resources.coffeeButton;
             this.coffeeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.coffeeButton.Location = new System.Drawing.Point(1088, 647);
+            this.coffeeButton.Location = new System.Drawing.Point(1079, 644);
             this.coffeeButton.Name = "coffeeButton";
             this.coffeeButton.Size = new System.Drawing.Size(154, 90);
             this.coffeeButton.TabIndex = 24;
@@ -252,7 +252,7 @@
             // 
             this.mapBox.BackgroundImage = global::ClickAtHome.Properties.Resources.mapBoxEmptyRect;
             this.mapBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mapBox.Location = new System.Drawing.Point(887, 62);
+            this.mapBox.Location = new System.Drawing.Point(879, 62);
             this.mapBox.Name = "mapBox";
             this.mapBox.Size = new System.Drawing.Size(561, 522);
             this.mapBox.TabIndex = 16;
@@ -263,7 +263,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(1464, 793);
+            this.ClientSize = new System.Drawing.Size(1452, 746);
             this.Controls.Add(this.signOutLabel);
             this.Controls.Add(this.startScreenLabel);
             this.Controls.Add(this.linkLabel3);
