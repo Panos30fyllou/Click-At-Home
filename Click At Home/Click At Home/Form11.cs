@@ -24,6 +24,7 @@ namespace ClickAtHome
         static Device bathroom2 = new Device("bathroom2", false, Properties.Resources.bathroom2Off, "Το φως στο μεγάλο μπάνιο άναψε", "Το φως στο μεγάλο μπάνιο έσβησε");
         static Device coffeemaker = new Device("coffeeMaker", false, Properties.Resources.coffeeMakerOff, "Η καφετιέρα ενεργοποιήθηκε", "Η καφετιέρα γέμισε");
         static Device aircondition = new Device("airCondition", false, Properties.Resources.airConditionOff, "Το κλιματιστικό ενεργοποιήθηκε στους ", "Το κλιματιστικό απενεργοποιήθηκε");
+        
         static string airconditionMode = "ΖΕΣΤΟ";
         static int airconditionTemp = 20;
         List<Device> deviceList = new List<Device> { bedlamp1, bedlamp2, kidsbedlamp, tv, bathroom1, bathroom2, coffeemaker, aircondition };     //In this list, every device of the house is stored.

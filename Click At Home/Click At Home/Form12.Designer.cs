@@ -91,7 +91,6 @@
             this.destTextBox0.Name = "destTextBox0";
             this.destTextBox0.Size = new System.Drawing.Size(200, 21);
             this.destTextBox0.TabIndex = 15;
-            this.destTextBox0.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             this.destTextBox0.Enter += new System.EventHandler(this.TextBox_Enter);
             this.destTextBox0.Leave += new System.EventHandler(this.TextBox_Leave);
             // 

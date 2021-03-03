@@ -184,7 +184,7 @@ namespace ClickAtHome
         private void TextBox_Enter(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ")){
+            if (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ")){
                 textBox.Text = null;
                 textBox.ForeColor = Color.Black;
             }
@@ -194,21 +194,15 @@ namespace ClickAtHome
         {
             TextBox textBox = sender as TextBox;
             if (String.IsNullOrEmpty(textBox.Text) || String.IsNullOrWhiteSpace(textBox.Text)){
-                if (textBox.Location.X == destTextBox0.Location.X){
-                    textBox.Text = "ΠΡΟΟΡΙΣΜΟΣ";
-                    textBox.ForeColor = Color.Gray;
-                }
-                else if (textBox.Location.X == timeMaskedTextBox0.Location.X){
-                    textBox.Text = "ΩΡΑ";
-                    textBox.ForeColor = Color.Gray;
-                }
+                textBox.Text = "ΠΡΟΟΡΙΣΜΟΣ";
+                textBox.ForeColor = Color.Gray;
             }
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            textBox.ForeColor = (textBox.Text.Equals("ΠΡΟΟΡΙΣΜΟΣ") || textBox.Text.Equals("ΩΡΑ")) ? Color.Gray : Color.Black;
+            textBox.ForeColor = Color.Black;
         }
 
         ///////////////////////////////////

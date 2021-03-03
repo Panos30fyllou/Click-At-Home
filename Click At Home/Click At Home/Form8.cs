@@ -113,7 +113,7 @@ namespace ClickAtHome
                 richTextBox1.Text += "Οι παλμοί σας είναι πάνω απο το επιθυμητό στόχο αλλά μέσα στα φυσιολογικά όρια." + Environment.NewLine + Environment.NewLine;
         }
 
-        //Σε περίπτωση που τα πεδία έχυν το αρχικό τους περιεχόμενο όταν πατηθούν, αυτό θα σβηστεί
+        //Σε περίπτωση που τα πεδία έχουν το αρχικό τους περιεχόμενο όταν πατηθούν, αυτό θα σβηστεί
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "Όνομα")
